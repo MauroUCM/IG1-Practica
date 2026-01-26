@@ -50,9 +50,4 @@ public:
 	explicit RGBAxes(GLdouble l);
 };
 
-class SingleColorEntity : public Abs_Entity 
-{
-
-};
-
 #endif //_H_Entities_H_
