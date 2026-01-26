@@ -35,7 +35,7 @@ main(int argc, char* argv[])
 #ifdef WIN32
 	setup_windows_console();
 #endif
-
+	
 	try {
 		std::cout << "Starting application...\n";
 		IG1App::s_ig1app.run();
