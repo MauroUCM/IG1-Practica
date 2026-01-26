@@ -111,3 +111,27 @@ Mesh::createRGBAxes(GLdouble l)
 
 	return mesh;
 }
+
+Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r) 
+{
+	Mesh* mesh = new Mesh();
+	GLfloat cirInd = 0;
+
+	mesh->mPrimitive = GL_LINE_LOOP;
+
+	mesh->mNumVertices = num;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	for (int i = 0; i < num; i++) {
+		GLfloat auxRad = radians(cirInd), 
+			x = r * cos(auxRad), 
+			y = r * sin(auxRad);
+
+		mesh->vVertices.emplace_back(x, y, 0.0);
+		mesh->vColors.emplace_back(0.0, 0.0, 0.0, 1.0);
+
+		cirInd += 360 / num;
+	}
+	
+	return mesh;
+}
