@@ -15,3 +15,8 @@
 *.recipe
 *.exe
 .vs/IGProjects_x64_VS2022/v17/.suo
+.vs/IGProjects_x64_VS2022/v18/.suo
+.vs/IGProjects_x64_VS2022/v18/DocumentLayout.backup.json
+.vs/IGProjects_x64_VS2022/v18/DocumentLayout.json
+.vs/IGProjects_x64_VS2022/v18/fileList.bin
+IG1App/IG1App.vcxproj.user
