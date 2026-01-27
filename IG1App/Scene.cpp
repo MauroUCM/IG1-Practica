@@ -15,8 +15,10 @@ Scene::init()
 	// Textures
 
 	// Graphics objects (entities) of the scene
+	vec4 amarillo = { 1.0, 1.0, 0.0, 1.0 };
+
 	gObjects.push_back(new RGBAxes(400.0));
-	gObjects.push_back(new RegularPolygon(7, 100.0)); // pentagon
+	gObjects.push_back(new RegularPolygon(7, 100.0, amarillo)); // pentagon
 }
 
 Scene::~Scene()
