@@ -26,6 +26,7 @@ public:
 
 	void load();
 	void unload();
+	void colorAllV(glm::vec4 color);
 
 protected:
 	GLuint mPrimitive =

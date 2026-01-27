@@ -134,3 +134,10 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	
 	return mesh;
 }
+
+void Mesh::colorAllV(glm::vec4 color) 
+{
+	for (int i = 0; i < mNumVertices; i++) {
+		vColors.emplace_back(color);
+	}
+}
