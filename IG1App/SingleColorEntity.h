@@ -17,6 +17,7 @@ public:
 
 class RegularPolygon : public SingleColorEntity 
 {
+public:
 	RegularPolygon(GLuint num,  GLdouble r);
 };
 

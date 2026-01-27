@@ -128,7 +128,6 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 			y = r * sin(auxRad);
 
 		mesh->vVertices.emplace_back(x, y, 0.0);
-		//mesh->vColors.emplace_back(0.0, 0.0, 0.0, 1.0);
 
 		angInd += 360 / num;
 	}
