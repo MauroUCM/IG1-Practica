@@ -3,7 +3,6 @@
 SingleColorEntity::SingleColorEntity(glm::vec4 color) : mColor(color)
 {
 	mShader = Shader::get("vcolors");
-	//mMesh->colorAllV(color);
 }
 
 void SingleColorEntity::render(const glm::mat4& modelViewMat) const

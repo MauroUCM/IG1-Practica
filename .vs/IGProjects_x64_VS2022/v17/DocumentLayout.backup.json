@@ -62,8 +62,7 @@
               "RelativeToolTip": "IG1App\\Scene.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-26T13:46:52.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T13:46:52.656Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "IG1App\\main.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-26T13:45:54.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T13:45:54.92Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "IG1App\\Mesh.cpp",
               "ViewState": "AgIAAIAAAAAAAAAAAAAuwIkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-26T12:07:06.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T12:07:06.675Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "IG1App\\Mesh.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-26T12:07:05.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T12:07:05.843Z"
             },
             {
               "$type": "Document",
@@ -114,8 +110,7 @@
               "RelativeToolTip": "IG1App\\Entity.cpp",
               "ViewState": "AgIAACEAAAAADeU1lNcAwCYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-26T11:56:09.076Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T11:56:09.076Z"
             },
             {
               "$type": "Document",
@@ -125,7 +120,7 @@
               "RelativeDocumentMoniker": "IG1App\\SingleColorEntity.cpp",
               "ToolTip": "C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\IG1App\\SingleColorEntity.cpp",
               "RelativeToolTip": "IG1App\\SingleColorEntity.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-01-26T10:26:41.086Z",
               "EditorCaption": ""
@@ -140,8 +135,7 @@
               "RelativeToolTip": "IG1App\\SingleColorEntity.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-26T10:26:34.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T10:26:34.29Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "IG1App\\Entity.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-26T10:13:54.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T10:13:54.314Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "IG1App\\Scene.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-26T10:12:24.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T10:12:24.261Z"
             }
           ]
         }
