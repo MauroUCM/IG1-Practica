@@ -14,12 +14,3 @@ public:
 	void SetColor(glm::vec4 newColor) { mColor = newColor; }
 	void render(const glm::mat4& modelViewMat) const override;
 };
-
-class RegularPolygon : public SingleColorEntity 
-{
-public:
-	RegularPolygon(GLuint num,  GLdouble r);
-	RegularPolygon(GLuint num, GLdouble r, glm::vec4 color);
-
-};
-
