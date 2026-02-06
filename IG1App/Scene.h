@@ -20,7 +20,7 @@ public:
 	Scene(const Scene& s) = delete;            // no copy constructor
 	Scene& operator=(const Scene& s) = delete; // no copy assignment
 
-	void init();
+	virtual void init() = 0;
 
 	void render(Camera const& cam) const;
 
@@ -34,6 +34,18 @@ protected:
 	void resetGL();
 
 	std::vector<Abs_Entity*> gObjects; // Entities (graphic objects) of the scene
+};
+
+class Scene1 : public Scene {
+
+	void init() override;
+
+};
+
+class Scene2 : public Scene {
+
+	void init() override;
+
 };
 
 #endif //_H_Scene_H_

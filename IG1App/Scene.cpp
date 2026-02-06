@@ -5,21 +5,21 @@
 
 using namespace glm;
 
-void
-Scene::init()
-{
-	setGL(); // OpenGL settings
-
-	// allocate memory and load resources
-	// Lights
-	// Textures
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));
-	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
-	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia magenta
-
-}
+//void
+//Scene::init()
+//{
+//	setGL(); // OpenGL settings
+//
+//	// allocate memory and load resources
+//	// Lights
+//	// Textures
+//
+//	// Graphics objects (entities) of the scene
+//	gObjects.push_back(new RGBAxes(400.0));
+//	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
+//	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia magenta
+//
+//}
 
 Scene::~Scene()
 {
@@ -72,4 +72,23 @@ Scene::render(Camera const& cam) const
 
 	for (Abs_Entity* el : gObjects)
 		el->render(cam.viewMat());
+}
+
+void
+Scene1::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));
+	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
+	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia magenta
+}
+
+void
+Scene2::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));
+	gObjects.push_back(new RegularPolygon(3, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
 }

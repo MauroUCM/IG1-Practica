@@ -55,10 +55,12 @@ IG1App::init()
 	// allocate memory and resources
 	mViewPort = new Viewport(mWinW, mWinH);
 	mCamera = new Camera(mViewPort);
-	mScenes.push_back(new Scene);
+	mScenes.push_back(new Scene1);
+	mScenes.push_back(new Scene2);
 
 	mCamera->set2D();
 	mScenes[0]->init();
+	mScenes[1]->init();
 	mScenes[mCurrentScene]->load();
 }
 
@@ -165,7 +167,7 @@ IG1App::key(unsigned int key)
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
-				if (changeScene(key - '0')) break;
+				if (changeScene(key - '1')) break;
 				cout << "[NOTE] There is no scene " << char(key) << ".\n";
 			}
 			need_redisplay = false;
