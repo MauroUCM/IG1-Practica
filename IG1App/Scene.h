@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Entity.h"
 #include "SingleColorEntity.h"
+#include "RegularPolygon.h"
 
 #include <vector>
 

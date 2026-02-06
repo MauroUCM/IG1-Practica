@@ -1,4 +1,5 @@
 #include "RegularPolygon.h"
+#include "Mesh.h"
 
 RegularPolygon::RegularPolygon(GLuint num, GLdouble r)
 {
