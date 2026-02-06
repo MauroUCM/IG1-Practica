@@ -135,6 +135,27 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	return mesh;
 }
 
+Mesh* Mesh::generateTriangle(GLdouble r)
+{
+	Mesh* mesh = new Mesh();
+	GLfloat angInd = 90;
+
+	mesh->mNumVertices = 3;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	for (int i = 0; i < 3; i++) {
+		GLfloat auxRad = radians(angInd),
+			x = r * cos(auxRad),
+			y = r * sin(auxRad);
+
+		mesh->vVertices.emplace_back(x, y, 0.0);
+
+		angInd += 360 / 3;
+	}
+
+	return mesh;
+}
+
 void Mesh::colorAllV(glm::vec4 color) 
 {
 	for (int i = 0; i < mNumVertices; i++) {

@@ -90,5 +90,5 @@ Scene2::init() {
 
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));
-	gObjects.push_back(new RegularPolygon(3, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
+	gObjects.push_back(new RGBTriangle(200.0));
 }
