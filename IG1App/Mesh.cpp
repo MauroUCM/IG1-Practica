@@ -112,7 +112,8 @@ Mesh::createRGBAxes(GLdouble l)
 	return mesh;
 }
 
-Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r) 
+Mesh* 
+Mesh::generateRegularPolygon(GLuint num, GLdouble r) 
 {
 	Mesh* mesh = new Mesh();
 	GLfloat angInd = 90;
@@ -135,7 +136,8 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	return mesh;
 }
 
-Mesh* Mesh::generateTriangle(GLdouble r)
+Mesh* 
+Mesh::generateTriangle(GLdouble r)
 {
 	Mesh* mesh = new Mesh();
 	GLfloat angInd = 90;
@@ -156,7 +158,23 @@ Mesh* Mesh::generateTriangle(GLdouble r)
 	return mesh;
 }
 
-void Mesh::colorAllV(glm::vec4 color) 
+Mesh* 
+Mesh::generateRGBRectangle(GLdouble w, GLdouble h) 
+{
+	Mesh* mesh = new Mesh();
+
+	return mesh;
+}
+
+Mesh*
+Mesh::generateRectangle(GLdouble w, GLdouble h) 
+{
+	Mesh* mesh = new Mesh();
+
+	return mesh;
+}
+
+void Mesh::setAllColors(glm::vec4 color) 
 {
 	for (int i = 0; i < mNumVertices; i++) {
 		vColors.emplace_back(color);
