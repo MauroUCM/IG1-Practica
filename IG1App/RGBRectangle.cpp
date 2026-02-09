@@ -1,0 +1,32 @@
+#include "RGBRectangle.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include<iostream>
+
+using namespace glm;
+
+RGBRectangle::RGBRectangle(GLdouble w, GLdouble h) {
+	mMesh = Mesh::generateRGBRectangle( w, h);
+}
+
+void RGBRectangle::render(const glm::mat4& modelViewMat) const
+{
+	if (mMesh != nullptr) {
+		mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		mShader->use();
+		upload(aMat);
+
+		glEnable(GL_CULL_FACE);
+
+		glCullFace(GL_BACK);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		mMesh->render();
+
+		glCullFace(GL_FRONT);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		mMesh->render();
+
+		glDisable(GL_CULL_FACE);
+	}
+}
