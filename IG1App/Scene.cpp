@@ -87,5 +87,5 @@ Scene2::init() {
 	//gObjects.push_back(new RGBTriangle(200.0));
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// circunferencia amarilla
 	gObjects.push_back(new RGBRectangle(282.0, 282.0));
-	gObjects.push_back(new RGBTriangle(80));
+	gObjects.push_back(new RGBTriangle(80, -1.0f));
 }
