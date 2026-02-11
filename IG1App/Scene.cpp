@@ -59,6 +59,13 @@ Scene::render(Camera const& cam) const
 }
 
 void
+Scene::update() {
+	for (Abs_Entity* obj : gObjects) {
+		obj->update();
+	}
+}
+
+void
 Scene1::init() {
 	setGL(); // OpenGL settings
 
