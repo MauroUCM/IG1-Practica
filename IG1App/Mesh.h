@@ -15,7 +15,7 @@ public:
 	static Mesh* generateRectangle(GLdouble w, GLdouble h); // generates a rectangle
 	static Mesh* generateRGBRectangle(GLdouble w, GLdouble h); // generates a RGB rectangle
 	static Mesh* generateCube(GLdouble length);	// generates a regular cube
-
+	static Mesh* generateRGBCubeTriangles(GLdouble length);
 
 	Mesh();
 	virtual ~Mesh();

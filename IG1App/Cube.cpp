@@ -1,0 +1,30 @@
+#include "Cube.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+using namespace glm;
+
+Cube::Cube(GLdouble l) {
+	mMesh = Mesh::generateRGBCubeTriangles(l);
+}
+
+void Cube::render(const glm::mat4& modelViewMat) const
+{
+	if (mMesh != nullptr) {
+		mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		mShader->use();
+		upload(aMat);
+
+		glEnable(GL_CULL_FACE);
+
+		glCullFace(GL_FRONT);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+		mMesh->render();
+
+		glCullFace(GL_BACK);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		mMesh->render();
+
+		glDisable(GL_CULL_FACE);
+	}
+}

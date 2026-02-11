@@ -132,7 +132,7 @@ Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 
 		angInd += 360 / num;
 	}
-	
+
 	return mesh;
 }
 
@@ -192,8 +192,114 @@ Mesh*
 Mesh::generateCube(GLdouble length) 
 {
 	Mesh* mesh = new Mesh();
-	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+	mesh->mPrimitive = GL_TRIANGLES;
 
+	mesh->mNumVertices = 3*2*6;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(length, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+
+	//// Left face
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(0.0, length, length);
+
+	//// Top face
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(length, length, length);
+
+	//// Front face
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+
+	//// Right face
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+	mesh->vVertices.emplace_back(length, 0.0, 0.0);
+
+	//// Bottom face
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(length, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, 0.0, 0.0);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+
+	// ->, ^, 
+	return mesh;
+}
+
+Mesh* 
+Mesh::generateRGBCubeTriangles(GLdouble length) 
+{
+	Mesh* mesh = generateCube(length);
+
+	// Back face
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+
+	//// Left face
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+
+	//// Top face
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+
+	//// Front face
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+
+	//// Right face
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+
+	//// Bottom face
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
 
 
 	return mesh;

@@ -10,6 +10,7 @@
 #include "RegularPolygon.h"
 #include "RGBTriangle.h"
 #include "RGBRectangle.h"
+#include "Cube.h"
 
 #include <vector>
 
@@ -46,6 +47,12 @@ class Scene1 : public Scene {
 };
 
 class Scene2 : public Scene {
+
+	void init() override;
+
+};
+
+class Scene3 : public Scene {
 
 	void init() override;
 

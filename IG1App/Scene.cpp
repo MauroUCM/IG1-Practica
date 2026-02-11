@@ -74,7 +74,7 @@ Scene1::init() {
 
 	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia amarilla
-	gObjects.push_back(new RGBTriangle(200.0));
+	gObjects.push_back(new RGBTriangle(200.0));									// triangulo rgb
 }
 
 void
@@ -84,8 +84,17 @@ Scene2::init() {
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
-	//gObjects.push_back(new RGBTriangle(200.0));
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// circunferencia amarilla
-	gObjects.push_back(new RGBRectangle(282.0, 282.0));
-	gObjects.push_back(new RGBTriangle(80, -1.0f));
+	gObjects.push_back(new RGBRectangle(282.0, 282.0));							// rectangulo rgb
+	gObjects.push_back(new RGBTriangle(80, -1.0f));								// triangulo rgb
+}
+
+void
+Scene3::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	gObjects.push_back(new Cube(100));
 }
