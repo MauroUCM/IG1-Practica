@@ -188,6 +188,17 @@ Mesh::generateRGBRectangle(GLdouble w, GLdouble h)
 	return mesh;
 }
 
+Mesh*
+Mesh::generateCube(GLdouble length) 
+{
+	Mesh* mesh = new Mesh();
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+
+
+
+	return mesh;
+}
+
 void Mesh::setAllColors(glm::vec4 color) 
 {
 	for (int i = 0; i < mNumVertices; i++) {
