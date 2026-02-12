@@ -197,6 +197,7 @@ Mesh::generateCube(GLdouble length)
 	mesh->mNumVertices = 3*2*6;
 	mesh->vVertices.reserve(mesh->mNumVertices);
 
+	// Back face
 	mesh->vVertices.emplace_back(0.0, length, 0.0);
 	mesh->vVertices.emplace_back(length, length, 0.0);
 	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
@@ -204,7 +205,15 @@ Mesh::generateCube(GLdouble length)
 	mesh->vVertices.emplace_back(length, 0.0, 0.0);
 	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
 
-	//// Left face
+	// Front face
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+
+	// Left face
 	mesh->vVertices.emplace_back(0.0, length, length);
 	mesh->vVertices.emplace_back(0.0, length, 0.0);
 	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
@@ -212,23 +221,7 @@ Mesh::generateCube(GLdouble length)
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
 	mesh->vVertices.emplace_back(0.0, length, length);
 
-	//// Top face
-	mesh->vVertices.emplace_back(0.0, length, 0.0);
-	mesh->vVertices.emplace_back(0.0, length, length);
-	mesh->vVertices.emplace_back(length, length, length);
-	mesh->vVertices.emplace_back(length, length, 0.0);
-	mesh->vVertices.emplace_back(0.0, length, 0.0);
-	mesh->vVertices.emplace_back(length, length, length);
-
-	//// Front face
-	mesh->vVertices.emplace_back(length, length, length);
-	mesh->vVertices.emplace_back(0.0, length, length);
-	mesh->vVertices.emplace_back(0.0, 0.0, length);
-	mesh->vVertices.emplace_back(length, length, length);
-	mesh->vVertices.emplace_back(0.0, 0.0, length);
-	mesh->vVertices.emplace_back(length, 0.0, length);
-
-	//// Right face
+	// Right face
 	mesh->vVertices.emplace_back(length, length, 0.0);
 	mesh->vVertices.emplace_back(length, length, length);
 	mesh->vVertices.emplace_back(length, 0.0, length);
@@ -236,7 +229,15 @@ Mesh::generateCube(GLdouble length)
 	mesh->vVertices.emplace_back(length, 0.0, length);
 	mesh->vVertices.emplace_back(length, 0.0, 0.0);
 
-	//// Bottom face
+	// Top face
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(length, length, length);
+
+	// Bottom face
 	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
 	mesh->vVertices.emplace_back(length, 0.0, 0.0);
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
@@ -244,7 +245,6 @@ Mesh::generateCube(GLdouble length)
 	mesh->vVertices.emplace_back(length, 0.0, length);
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
 
-	// ->, ^, 
 	return mesh;
 }
 
@@ -253,54 +253,20 @@ Mesh::generateRGBCubeTriangles(GLdouble length)
 {
 	Mesh* mesh = generateCube(length);
 
-	// Back face
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	// Front and back faces (green)
+	for (int i = 0; i < 12; i++) {
+		mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	}
 
-	//// Left face
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	// Left and right faces (red)
+	for (int i = 0; i < 12; i++) {
+		mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	}
 
-	//// Top face
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-
-	//// Front face
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
-
-	//// Right face
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
-
-	//// Bottom face
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
-
+	// Top and bottom face (blue)
+	for (int i = 0; i < 12; i++) {
+		mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	}
 
 	return mesh;
 }
