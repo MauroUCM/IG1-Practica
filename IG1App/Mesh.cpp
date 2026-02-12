@@ -253,17 +253,17 @@ Mesh::generateRGBCubeTriangles(GLdouble length)
 {
 	Mesh* mesh = generateCube(length);
 
-	// Front and back faces (green)
+	// Front and back faces: green
 	for (int i = 0; i < 12; i++) {
 		mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
 	}
 
-	// Left and right faces (red)
+	// Left and right faces: red
 	for (int i = 0; i < 12; i++) {
 		mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
 	}
 
-	// Top and bottom face (blue)
+	// Top and bottom face: blue
 	for (int i = 0; i < 12; i++) {
 		mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
 	}
