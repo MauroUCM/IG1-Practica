@@ -8,4 +8,6 @@ public:
 	~RGBRectangle() {};
 
 	virtual void render(const glm::mat4& modelViewMat) const override;
+
 };
+
