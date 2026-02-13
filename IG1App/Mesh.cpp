@@ -130,7 +130,7 @@ Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 
 		mesh->vVertices.emplace_back(x, y, 0.0);
 
-		angInd += 360 / num;
+		angInd -= 360 / num;
 	}
 
 	return mesh;
