@@ -152,7 +152,7 @@ Mesh::generateTriangle(GLdouble r)
 
 		mesh->vVertices.emplace_back(x, y, 0.0);
 
-		angInd += 360 / 3;
+		angInd -= 360 / 3;
 	}
 
 	return mesh;

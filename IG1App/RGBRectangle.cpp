@@ -15,7 +15,7 @@ void RGBRectangle::render(const glm::mat4& modelViewMat) const
 		mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
 		mShader->use();
 		upload(aMat);
-
+		
 		glEnable(GL_CULL_FACE);
 
 		glCullFace(GL_FRONT);
