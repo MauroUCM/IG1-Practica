@@ -150,7 +150,7 @@ Mesh::generateTriangle(GLdouble r)
 			x = r * cos(auxRad),
 			y = r * sin(auxRad);
 
-		mesh->vVertices.emplace_back(x, y, 0.0);
+		mesh->vVertices.emplace_back(x, y, 0.1);
 
 		angInd -= 360 / 3;
 	}
