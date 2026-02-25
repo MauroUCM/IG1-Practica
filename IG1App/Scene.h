@@ -11,6 +11,7 @@
 #include "RGBTriangle.h"
 #include "RGBRectangle.h"
 #include "Cube.h"
+#include "Ground.h"
 
 #include <vector>
 

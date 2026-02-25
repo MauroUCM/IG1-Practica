@@ -6,7 +6,7 @@
 using namespace glm;
 
 RGBRectangle::RGBRectangle(GLdouble w, GLdouble h) {
-	mMesh = Mesh::generateRGBRectangle( w, h);
+	mMesh = Mesh::generateRGBRectangle(w, h);
 }
 
 void RGBRectangle::render(const glm::mat4& modelViewMat) const
