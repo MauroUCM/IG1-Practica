@@ -66,13 +66,24 @@ Scene::update() {
 }
 
 void
-Scene1::init() {
+Scene0::init() {
 	setGL(); // OpenGL settings
 
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
 	gObjects.push_back(new Ground());
+}
+
+void
+Scene1::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
+	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia amarilla
 }
 
 void
