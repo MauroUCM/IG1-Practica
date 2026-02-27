@@ -8,6 +8,7 @@ public:
 	EntityWithTexture(Texture* mTexture, bool mModulate);
 	~EntityWithTexture();
 
+	virtual void render(const glm::mat4& modelViewMat) const override;
 
 protected:
 	Texture* mTexture;
