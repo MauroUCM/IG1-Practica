@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+#include "Texture.h"
 
 #include <vector>
 
@@ -15,7 +16,8 @@ public:
 	static Mesh* generateRectangle(GLdouble w, GLdouble h); // generates a rectangle
 	static Mesh* generateRGBRectangle(GLdouble w, GLdouble h); // generates a RGB rectangle
 	static Mesh* generateCube(GLdouble length);	// generates a regular cube
-	static Mesh* generateRGBCubeTriangles(GLdouble length);
+	static Mesh* generateRGBCubeTriangles(GLdouble length);	// generates a regular RGB cube
+	static Mesh* generateRectangleTexCor(GLdouble w, GLdouble h);	// generates a rectangle with a texture
 
 	Mesh();
 	virtual ~Mesh();
@@ -41,6 +43,7 @@ protected:
 	GLuint mNumVertices = 0; // number of elements ( = vVertices.size())
 	std::vector<glm::vec3> vVertices; // vertex array
 	std::vector<glm::vec4> vColors;   // color array
+	std::vector<glm::vec2> vTexCoords; // texture coordinates
 	virtual void draw() const;
 
 	GLuint mVAO;  // vertex array object
@@ -48,6 +51,7 @@ protected:
 private:
 	GLuint mVBO;  // vertex buffer object
 	GLuint mCBO;  // color buffer object
+	GLuint mTCO; // texture buffer object
 };
 
 #endif //_H_Scene_H_

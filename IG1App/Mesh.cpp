@@ -50,6 +50,15 @@ Mesh::load()
 			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(vec4), nullptr);
 			glEnableVertexAttribArray(1);
 		}
+
+		if (vTexCoords.size() > 0) {
+			glGenBuffers(1, &mTCO);
+			glBindBuffer(GL_ARRAY_BUFFER, mTCO);
+			glBufferData(GL_ARRAY_BUFFER, vTexCoords.size() * sizeof(vec2), vTexCoords.data(), GL_STATIC_DRAW);
+			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(vec2), nullptr);
+			glEnableVertexAttribArray(2);
+
+		}
 	}
 }
 
@@ -269,6 +278,19 @@ Mesh::generateRGBCubeTriangles(GLdouble length)
 	}
 
 	return mesh;
+}
+
+Mesh*
+Mesh::generateRectangleTexCor(GLdouble w, GLdouble h) {
+	Mesh* m = generateRectangle(w, h);
+	
+	m->vTexCoords.reserve(m->mNumVertices);
+	m->vTexCoords.emplace_back(0, 1);
+	m->vTexCoords.emplace_back(0, 0);
+	m->vTexCoords.emplace_back(1, 1);
+	m->vTexCoords.emplace_back(1, 0);
+
+	return m;
 }
 
 void Mesh::setAllColors(glm::vec4 color) 

@@ -6,6 +6,8 @@ using namespace glm;
 
 Cube::Cube(GLdouble l) {
 	mMesh = Mesh::generateRGBCubeTriangles(l);
+
+	mModelMat = glm::translate(mModelMat, glm::vec3{ 0.0f, 0.0f, -l });
 }
 
 void Cube::render(const glm::mat4& modelViewMat) const
@@ -30,7 +32,7 @@ void Cube::render(const glm::mat4& modelViewMat) const
 }
 
 void Cube::update() {
-	if (iState == 270) {
+	if (iState == 180) {
 		state++;
 		iState = 0;
 		if (state == 3) {
@@ -40,7 +42,7 @@ void Cube::update() {
 	
 	switch (state) {
 	case 0:
-		mModelMat = glm::rotate(mModelMat, glm::radians(-1.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		mModelMat = glm::rotate(mModelMat, glm::radians(1.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		break;
 	case 1:
 		mModelMat = glm::rotate(mModelMat, glm::radians(-1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
