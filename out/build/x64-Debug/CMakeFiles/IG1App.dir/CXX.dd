@@ -1,0 +1,21 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles\IG1App.dir\IG1App\Camera.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Entity.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\IG1App.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Image.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\main.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Mesh.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Scene.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Shader.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Texture.cpp.obj: dyndep
+
+build CMakeFiles\IG1App.dir\IG1App\Viewport.cpp.obj: dyndep
+

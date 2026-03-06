@@ -1,0 +1,78 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Users/mauro/Documents/GitHub/IG-P1/out/build/x64-Debug",
+	"dir-cur-src" : "C:/Users/mauro/Documents/GitHub/IG-P1",
+	"dir-top-bld" : "C:/Users/mauro/Documents/GitHub/IG-P1/out/build/x64-Debug",
+	"dir-top-src" : "C:/Users/mauro/Documents/GitHub/IG-P1",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\libs\\glew\\include",
+		"C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\libs\\glfw\\include",
+		"C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\libs\\glm\\include",
+		"C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\libs\\stb_image\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/mauro/Documents/GitHub/IG-P1/out/build/x64-Debug/CMakeFiles/IG1App.dir",
+	"sources" : 
+	{
+		"CMakeFiles/IG1App.dir/IG1App/Camera.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Camera.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Entity.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Entity.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/IG1App.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/IG1App.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Image.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Image.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Mesh.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Mesh.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Scene.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Scene.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Shader.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Shader.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Texture.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Texture.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/Viewport.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/Viewport.cpp"
+		},
+		"CMakeFiles/IG1App.dir/IG1App/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/mauro/Documents/GitHub/IG-P1/IG1App/main.cpp"
+		}
+	}
+}

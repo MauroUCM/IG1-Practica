@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\IG1App.dir\\IG1App\\Shader.cpp.obj",
+            "outputs": [
+                "C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\out\\build\\x64-Debug\\vc140.pdb",
+                "CMakeFiles\\IG1App.dir\\IG1App\\Shader.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

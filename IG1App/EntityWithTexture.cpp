@@ -1,8 +1,9 @@
 #include "EntityWithTexture.h"
+#include <iostream>
 
 using namespace glm;
 
-EntityWithTexture::EntityWithTexture(bool modul, Texture* text) : mTexture(text), mModulate(modul) {
+EntityWithTexture::EntityWithTexture(Texture* text, bool modul) : mTexture(text), mModulate(modul) {
 	mShader = Shader::get("texture");
 }	
 

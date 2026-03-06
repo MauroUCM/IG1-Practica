@@ -5,7 +5,7 @@
 class Ground : public EntityWithTexture
 {
 public:
-	Ground();
+	Ground(Texture* mTexture = nullptr);
 	~Ground();
 
 };

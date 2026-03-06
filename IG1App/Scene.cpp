@@ -72,7 +72,9 @@ Scene0::init() {
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
-	gObjects.push_back(new Ground());
+	Texture* gText = new Texture();
+	gText->load("../assets/images/baldosaC.png");
+	gObjects.push_back(new Ground(gText));
 }
 
 void

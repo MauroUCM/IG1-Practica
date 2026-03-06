@@ -5,7 +5,7 @@
 class EntityWithTexture : public Abs_Entity
 {
 public:
-	EntityWithTexture(bool mModulate = false, Texture* mTexture = nullptr);
+	EntityWithTexture(Texture* mTexture = nullptr, bool mModulate = false);
 	~EntityWithTexture();
 
 	virtual void render(const glm::mat4& modelViewMat) const override;

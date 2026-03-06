@@ -1,0 +1,12 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "IG1App.exe (C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\bin\\IG1App.exe)",
+      "name": "IG1App.exe (C:\\Users\\mauro\\Documents\\GitHub\\IG-P1\\bin\\IG1App.exe)"
+    }
+  ]
+}
