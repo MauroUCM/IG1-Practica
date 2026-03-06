@@ -2,9 +2,9 @@
 
 using namespace glm;
 
-EntityWithTexture::EntityWithTexture(Texture* text, bool modul) : mTexture(text), mModulate(modul) {
+EntityWithTexture::EntityWithTexture(bool modul, Texture* text) : mTexture(text), mModulate(modul) {
 	mShader = Shader::get("texture");
-}
+}	
 
 EntityWithTexture::~EntityWithTexture() {
 
@@ -18,8 +18,8 @@ EntityWithTexture::render(mat4 const& modelViewMat) const
 		mShader->use();
 		mShader->setUniform("modulate", mModulate);
 		upload(aMat);
-		mTexture->bind();
+		if(mTexture != nullptr) mTexture->bind();
 		mMesh->render();
-		mTexture->unbind();
+		if(mTexture!= nullptr) mTexture->unbind();
 	}
 }
