@@ -74,6 +74,7 @@ Scene0::init() {
 
 	Texture* gText = new Texture();
 	gText->load("../assets/images/baldosaC.png");
+	gText->setWrap(GL_REPEAT);
 	gObjects.push_back(new Ground(gText));
 }
 
