@@ -293,6 +293,29 @@ Mesh::generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh) {
 	return m;
 }
 
+Mesh*
+Mesh::generateBoxOutline(GLdouble length) {
+
+	Mesh* mesh = new Mesh();
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+
+	mesh->mNumVertices = 10;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+	mesh->vVertices.emplace_back(length, length, length);
+	mesh->vVertices.emplace_back(length, 0.0, length);
+	mesh->vVertices.emplace_back(length, length, 0.0);
+	mesh->vVertices.emplace_back(length, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, length, length);
+	mesh->vVertices.emplace_back(0.0, 0.0, length);
+
+	return mesh;
+}
+
 void Mesh::setAllColors(glm::vec4 color) 
 {
 	for (int i = 0; i < mNumVertices; i++) {

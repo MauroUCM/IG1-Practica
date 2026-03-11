@@ -18,6 +18,7 @@ public:
 	static Mesh* generateCube(GLdouble length);	// generates a regular cube
 	static Mesh* generateRGBCubeTriangles(GLdouble length);	// generates a regular RGB cube
 	static Mesh* generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh);	// generates a rectangle with texture coordninates
+	static Mesh* generateBoxOutline(GLdouble length);	// generates a cube without the top and bottom face
 
 	Mesh();
 	virtual ~Mesh();

@@ -76,6 +76,7 @@ Scene0::init() {
 	gText->load("../assets/images/baldosaC.png");
 	gText->setWrap(GL_REPEAT);
 	gObjects.push_back(new Ground(gText));
+	gObjects.push_back(new BoxOutline(100.0));
 }
 
 void
@@ -98,7 +99,7 @@ Scene2::init() {
 
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// circunferencia amarilla
 	gObjects.push_back(new RGBRectangle(282.0, 282.0));							// rectangulo rgb
-	gObjects.push_back(new RGBTriangle(80));								// triangulo rgb
+	gObjects.push_back(new RGBTriangle(80));									// triangulo rgb
 }
 
 void
