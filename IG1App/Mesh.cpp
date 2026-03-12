@@ -298,9 +298,10 @@ Mesh::generateBoxOutline(GLdouble length) {
 	Mesh* mesh = new Mesh();
 	mesh->mPrimitive = GL_TRIANGLE_STRIP;
 
-	// regular vertices
 	mesh->mNumVertices = 10;
 	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	// regular vertices
 	mesh->vVertices.emplace_back(0.0, length, length);
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
 	mesh->vVertices.emplace_back(length, length, length);
@@ -324,6 +325,40 @@ Mesh::generateBoxOutline(GLdouble length) {
 	mesh->vTexCoords.emplace_back(1, 0);
 	mesh->vTexCoords.emplace_back(0, 1);
 	mesh->vTexCoords.emplace_back(0, 0);
+
+	return mesh;
+}
+
+Mesh*
+Mesh::generateStar3D(GLdouble re, GLuint np, GLdouble h) {
+	Mesh* mesh = new Mesh();
+	mesh->mPrimitive = GL_TRIANGLE_FAN;
+
+	mesh->mNumVertices = 2 + np * 2;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+
+	GLfloat angInd = 90;
+	for (int i = 0; i < np; i++) {
+		// puntas del radio exterior
+		GLfloat auxRad = radians(angInd),
+			x = re * cos(auxRad),
+			y = re * sin(auxRad);
+		mesh->vVertices.emplace_back(x, y, h);
+
+		angInd -= 360 / (2 * np);
+
+		// puntas del radio interior
+		auxRad = radians(angInd);
+		x = re / 2 * cos(auxRad);
+		y = re / 2 * sin(auxRad);
+		mesh->vVertices.emplace_back(x, y, h);
+
+		angInd -= 360 / (2 * np);
+	}
+
+	mesh->vVertices.emplace_back(0.0, re, h);
 
 	return mesh;
 }

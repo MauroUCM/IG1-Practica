@@ -72,16 +72,17 @@ Scene0::init() {
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
-	Texture* gText = new Texture();
-	gText->load("../assets/images/baldosaC.png");
-	gText->setWrap(GL_REPEAT);
-	gObjects.push_back(new Ground(gText));
+	gObjects.push_back(new Star3D(100.0, 6, 100));
+	//Texture* gText = new Texture();
+	//gText->load("../assets/images/baldosaC.png");
+	//gText->setWrap(GL_REPEAT);
+	//gObjects.push_back(new Ground(gText));
 
-	Texture* boText = new Texture();
-	boText->load("../assets/images/papelE.png");
-	Texture* biText = new Texture();
-	biText->load("../assets/images/container.jpg");
-	gObjects.push_back(new BoxOutline(100.0, boText, biText));
+	//Texture* boText = new Texture();
+	//boText->load("../assets/images/papelE.png");
+	//Texture* biText = new Texture();
+	//biText->load("../assets/images/container.jpg");
+	//gObjects.push_back(new BoxOutline(100.0, boText, biText));
 }
 
 void
