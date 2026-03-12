@@ -77,9 +77,11 @@ Scene0::init() {
 	gText->setWrap(GL_REPEAT);
 	gObjects.push_back(new Ground(gText));
 
-	Texture* bText = new Texture();
-	bText->load("../assets/images/papelE.png");
-	gObjects.push_back(new BoxOutline(100.0, bText));
+	Texture* boText = new Texture();
+	boText->load("../assets/images/papelE.png");
+	Texture* biText = new Texture();
+	biText->load("../assets/images/container.jpg");
+	gObjects.push_back(new BoxOutline(100.0, boText, biText));
 }
 
 void

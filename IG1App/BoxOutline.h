@@ -4,7 +4,7 @@
 class BoxOutline : public EntityWithTexture
 {
 public:
-	BoxOutline(GLdouble length, Texture* mTexture = nullptr, Texture* inTexture = nullptr);
+	BoxOutline(GLdouble length, Texture* mTexture, Texture* inTexture);
 	~BoxOutline() {};
 
 	virtual void render(const glm::mat4& modelViewMat) const override;
