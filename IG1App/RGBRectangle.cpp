@@ -3,8 +3,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace glm;
-
 RGBRectangle::RGBRectangle(GLdouble w, GLdouble h) {
 	mMesh = Mesh::generateRGBRectangle(w, h);
 }
@@ -12,7 +10,7 @@ RGBRectangle::RGBRectangle(GLdouble w, GLdouble h) {
 void RGBRectangle::render(const glm::mat4& modelViewMat) const
 {
 	if (mMesh != nullptr) {
-		mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		glm::mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
 		mShader->use();
 		upload(aMat);
 		
