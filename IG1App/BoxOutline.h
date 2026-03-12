@@ -1,10 +1,10 @@
 #pragma once
-#include "SingleColorEntity.h"
+#include "EntityWithTexture.h"
 
-class BoxOutline : public EntityWithColors
+class BoxOutline : public EntityWithTexture
 {
 public:
-	BoxOutline(GLdouble length);
+	BoxOutline(GLdouble length, Texture* mTexture = nullptr);
 	~BoxOutline() {};
 
 };
