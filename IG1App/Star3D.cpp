@@ -22,7 +22,7 @@ void Star3D::render(const glm::mat4& modelViewMat) const {
 		if (mTexture != nullptr) mTexture->unbind();
 	}
 }
-
+//hacer rotacion de esrellas guardando la matriz y haciendola por separado
 void Star3D::update() {
 	mModelMat = glm::rotate(mModelMat, glm::radians(1.0f), glm::vec3(0.0f, 0.0f, 1.0f));	// eje horizontal
 	mModelMat = glm::rotate(mModelMat, glm::radians(1.0f), glm::vec3(0.0f, 1.0f, 0.0f));	// eje vertical

@@ -74,7 +74,6 @@ Scene0::init() {
 
 	Texture* sText = new Texture();
 	sText->load("../assets/images/rueda.png");
-	sText->setWrap(GL_REPEAT);
 	gObjects.push_back(new Star3D(30, 8, 30, sText));
 
 	Texture* gText = new Texture();
