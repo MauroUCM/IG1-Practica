@@ -3,8 +3,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
-Star3D::Star3D(GLdouble re, GLuint np, GLdouble h) {
-	mMesh = Mesh::generateStar3D(re, np, h);
+Star3D::Star3D(GLdouble re, GLuint np, GLdouble h, Texture* mTexture) : EntityWithTexture(mTexture) {
+	mMesh = Mesh::generateStar3DTexCor(re, np, h);
 }
 
 void Star3D::render(const glm::mat4& modelViewMat) const {
@@ -12,13 +12,14 @@ void Star3D::render(const glm::mat4& modelViewMat) const {
 		glm::mat4 aMat = modelViewMat * mModelMat;
 		mShader->use();
 		upload(aMat);
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		if (mTexture != nullptr) mTexture->bind();
 		mMesh->render();
 		
 		// estrella inversa
 		aMat = glm::scale(aMat, glm::vec3(-1.0f, -1.0f, -1.0f));
 		upload(aMat);
 		mMesh->render();
+		if (mTexture != nullptr) mTexture->unbind();
 	}
 }
 

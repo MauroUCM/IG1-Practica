@@ -17,9 +17,10 @@ public:
 	static Mesh* generateRGBRectangle(GLdouble w, GLdouble h); // generates a RGB rectangle
 	static Mesh* generateCube(GLdouble length);	// generates a regular cube
 	static Mesh* generateRGBCubeTriangles(GLdouble length);	// generates a regular RGB cube
-	static Mesh* generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh);	// generates a rectangle with texture coordninates
+	static Mesh* generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh);	// generates a rectangle with texture coordinates
 	static Mesh* generateBoxOutline(GLdouble length);	// generates a cube without the top and bottom face
 	static Mesh* generateStar3D(GLdouble re, GLuint np, GLdouble h);	// generates a star of np points, h height in z axis and re radius 
+	static Mesh* generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h);	// generates a star with texture coordinates
 
 	Mesh();
 	virtual ~Mesh();

@@ -72,7 +72,11 @@ Scene0::init() {
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
-	gObjects.push_back(new Star3D(100.0, 6, 100));
+	Texture* gText = new Texture();
+	gText->load("../assets/images/rueda.png");
+	gText->setWrap(GL_REPEAT);
+	gObjects.push_back(new Star3D(100.0, 8, 100, gText));
+
 	//Texture* gText = new Texture();
 	//gText->load("../assets/images/baldosaC.png");
 	//gText->setWrap(GL_REPEAT);

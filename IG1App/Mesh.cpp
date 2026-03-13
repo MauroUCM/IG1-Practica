@@ -363,6 +363,33 @@ Mesh::generateStar3D(GLdouble re, GLuint np, GLdouble h) {
 	return mesh;
 }
 
+Mesh* 
+Mesh::generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h) {
+	Mesh* mesh = generateStar3D(re, np, h);
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+
+	mesh->vTexCoords.emplace_back(0.5, 0.5);
+	mesh->vTexCoords.emplace_back(0.5, 1.0);
+	mesh->vTexCoords.emplace_back(0.75, 1.0);
+	mesh->vTexCoords.emplace_back(1.0, 1.0);
+	mesh->vTexCoords.emplace_back(1.0, 0.75);
+	mesh->vTexCoords.emplace_back(1.0, 0.5);
+	mesh->vTexCoords.emplace_back(1.0, 0.25);
+	mesh->vTexCoords.emplace_back(1.0, 0.0);
+	mesh->vTexCoords.emplace_back(0.75, 0.0);
+	mesh->vTexCoords.emplace_back(0.5, 0.0);
+	mesh->vTexCoords.emplace_back(0.25, 0.0);
+	mesh->vTexCoords.emplace_back(0.0, 0.0);
+	mesh->vTexCoords.emplace_back(0.0, 0.25);
+	mesh->vTexCoords.emplace_back(0.0, 0.5);
+	mesh->vTexCoords.emplace_back(0.0, 0.75);
+	mesh->vTexCoords.emplace_back(0.0, 1.0);
+	mesh->vTexCoords.emplace_back(0.25, 1.0);
+	mesh->vTexCoords.emplace_back(0.5, 1.0);
+
+	return mesh;
+}
+
 void Mesh::setAllColors(glm::vec4 color) 
 {
 	for (int i = 0; i < mNumVertices; i++) {
