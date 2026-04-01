@@ -9,5 +9,8 @@ public:
 
 	virtual void render(const glm::mat4& modelViewMat) const override;
 	void update() override;
+
+private:
+	float _rot;
 };
 
