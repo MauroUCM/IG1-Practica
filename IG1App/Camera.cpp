@@ -29,6 +29,7 @@ void
 Camera::setVM()
 {
 	mViewMat = lookAt(mEye, mLook, mUp); // glm::lookAt defines the view matrix
+	setAxes();
 }
 
 void
@@ -117,7 +118,8 @@ Camera::upload() const
 	uploadPM();
 }
 
-void Camera::setAxes() {
+void 
+Camera::setAxes() {
 	mRight = row(mViewMat, 0);
 	mUpward = row(mViewMat, 1);
 	mFront = -row(mViewMat, 2);
