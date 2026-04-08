@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_access.hpp>
 
 #include "Viewport.h"
 
@@ -40,6 +41,9 @@ protected:
 	glm::vec3 mEye = {0.0, 0.0, 500.0}; // camera's position
 	glm::vec3 mLook = {0.0, 0.0, 0.0};  // target's position
 	glm::vec3 mUp = {0.0, 1.0, 0.0};    // the up vector
+	glm::vec3 mRight;
+	glm::vec3 mUpward;
+	glm::vec3 mFront;
 
 	glm::mat4 mViewMat;   // view matrix = inverse of modeling matrix
 	void uploadVM() const; // transfers viewMat to the GPU
@@ -56,6 +60,7 @@ protected:
 
 	void setVM();
 	void setPM();
+	void setAxes();	
 };
 
 #endif //_H_Camera_H_
