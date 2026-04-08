@@ -75,26 +75,26 @@ Scene0::init() {
 	// 3D star
 	Texture* sText = new Texture();
 	sText->load("../assets/images/rueda.png");
-	gObjects.push_back(new Star3D(100, 8, 100, sText));
+	gObjects.push_back(new Star3D(30, 8, 30, sText));
 
-	//// Tiles
-	//Texture* gText = new Texture();
-	//gText->load("../assets/images/baldosaC.png");
-	//gText->setWrap(GL_REPEAT);
-	//gObjects.push_back(new Ground(gText));
+	// Tiles
+	Texture* gText = new Texture();
+	gText->load("../assets/images/baldosaC.png");
+	gText->setWrap(GL_REPEAT);
+	gObjects.push_back(new Ground(gText));
 
-	//// Box
-	//Texture* boText = new Texture();
-	//boText->load("../assets/images/papelE.png");
-	//Texture* biText = new Texture();
-	//biText->load("../assets/images/container.jpg");
-	//gObjects.push_back(new BoxOutline(100.0, boText, biText));
+	// Box
+	Texture* boText = new Texture();
+	boText->load("../assets/images/papelE.png");
+	Texture* biText = new Texture();
+	biText->load("../assets/images/container.jpg");
+	gObjects.push_back(new BoxOutline(100.0, boText, biText));
 
-	//// Transparent border
-	//Texture* glText = new Texture();
-	//glText->load("../assets/images/windowC.png", 100U);
-	//glText->setWrap(GL_REPEAT);
-	//gObjects.push_back(new GlassParapet(500, glText));
+	// Transparent border
+	Texture* glText = new Texture();
+	glText->load("../assets/images/windowC.png", 100U);
+	glText->setWrap(GL_REPEAT);
+	gObjects.push_back(new GlassParapet(500, glText));
 }
 
 void
