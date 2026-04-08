@@ -182,6 +182,9 @@ IG1App::key(unsigned int key)
 		case 'u':
 			mUpdateEnabled = !mUpdateEnabled;
 			break;
+		case 'p':
+			mCamera->changePrj();
+			break;
 		default:
 			if (key >= '0' && key <= '9') {
 				if (changeScene(char(key) - '0')) break;

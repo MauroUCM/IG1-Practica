@@ -5,6 +5,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/glm.hpp>
 
+#include <iostream>
+
 using namespace glm;
 
 Camera::Camera(Viewport* vp)
@@ -119,8 +121,17 @@ Camera::upload() const
 }
 
 void 
-Camera::setAxes() {
-	mRight = row(mViewMat, 0);
-	mUpward = row(mViewMat, 1);
-	mFront = -row(mViewMat, 2);
+Camera::setAxes() 
+{
+	mRight = glm::row(mViewMat, 0);
+	mUpward = glm::row(mViewMat, 1);
+	mFront = -glm::row(mViewMat, 2);
+}
+
+void
+Camera::changePrj() 
+{
+	bOrto = !bOrto;
+
+	std::cout << bOrto << std::endl;
 }
