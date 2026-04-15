@@ -81,6 +81,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Photo.h" />
     <ClInclude Include="RegularPolygon.h" />
     <ClInclude Include="RGBRectangle.h" />
     <ClInclude Include="RGBTriangle.h" />
@@ -106,6 +107,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Photo.cpp" />
     <ClCompile Include="RegularPolygon.cpp" />
     <ClCompile Include="RGBRectangle.cpp" />
     <ClCompile Include="RGBTriangle.cpp" />

@@ -67,3 +67,22 @@ Texture::setWrap(GLuint wp) // GL_REPEAT, GL_CLAMP_TO_EDGE, ...
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wp);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
+
+void
+Texture::loadColorBuffer(GLsizei width, GLsizei height, GLuint buffer) {
+	// Bind de la textura (asegúrate de que this->id existe)
+	glBindTexture(GL_TEXTURE_2D, mId);
+
+	// Seleccionar el buffer a leer (GL_FRONT o GL_BACK)
+	glReadBuffer(buffer);
+
+	// Copiar el contenido del framebuffer a la textura
+	glCopyTexImage2D(
+		GL_TEXTURE_2D,  // target
+		0,              // nivel de mipmap
+		GL_RGB,         // formato interno de la textura
+		0, 0,           // x, y (origen en pantalla)
+		width, height,  // dimensiones
+		0               // borde (siempre 0)
+	);
+}
