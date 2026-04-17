@@ -27,9 +27,13 @@ public:
 	void roll(GLfloat a);	// rotates a degrees on the Z axis
 	void changePrj();		// changes the camera projection
 
-	void moveLR(GLfloat cs); // A izquierda/A derecha
-	void moveFB(GLfloat cs); // Adelante/Atrás
-	void moveUD(GLfloat cs); // Arriba/Abajo
+	void moveLR(GLfloat cs); // right / left
+	void moveFB(GLfloat cs); // forward / back
+	void moveUD(GLfloat cs); // up / down
+
+	void pitchReal(GLfloat cs);	// pitch up / pitch down
+	void yawReal(GLfloat cs);	// yaw right / yaw left
+	void rollReal(GLfloat cs);	// roll right / roll left
 
 	// projection matrix
 	glm::mat4 const& projMat() const { return mProjMat; };

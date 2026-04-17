@@ -169,3 +169,21 @@ Camera::moveUD(GLfloat cs)
 	mLook += mUpward * cs;
 	setVM();
 }
+
+void
+Camera::pitchReal(GLfloat cs)
+{
+
+}
+
+void
+Camera::yawReal(GLfloat cs)
+{
+
+}
+
+void
+Camera::rollReal(GLfloat cs)
+{
+
+}
