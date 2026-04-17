@@ -167,11 +167,29 @@ IG1App::key(unsigned int key)
 	bool need_redisplay = true;
 
 	switch (key) {
+		case 'w':
+			mCamera->moveFB(+1.0);	// move forward
+			break;
+		case 's':
+			mCamera->moveFB(-1.0);	// move back
+			break;
+		case 'a':
+			mCamera->moveLR(+1.0);	// move left
+			break;
+		case 'd':
+			mCamera->moveLR(-1.0);	// move right
+			break;
+		case 'W':
+			mCamera->moveUD(-1.0);	// move up
+			break;
+		case 'S':
+			mCamera->moveUD(+1.0);	// move down
+			break;
 		case '+':
-			mCamera->setScale(+0.01); // zoom in  (increases the scale)
+			mCamera->setScale(+1.0); // zoom in  (increases the scale)
 			break;
 		case '-':
-			mCamera->setScale(-0.01); // zoom out (decreases the scale)
+			mCamera->setScale(-1.0); // zoom out (decreases the scale)
 			break;
 		case 'l':
 			mCamera->set3D();

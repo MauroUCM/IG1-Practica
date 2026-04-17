@@ -4,7 +4,7 @@
 class Photo : public EntityWithTexture
 {
 	Photo();
-	~Photo() {};
+	~Photo();
 
 	virtual void update() override;
 };

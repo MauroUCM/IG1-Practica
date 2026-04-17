@@ -104,13 +104,15 @@ Camera::setPM()
 		                 mFarVal);
 		// glm::ortho defines the orthogonal projection matrix
 	}
+
 	else {
-		mProjMat = frustum(xLeft * mScaleFact,
-			xRight * mScaleFact,
-			yBot * mScaleFact,
-			yTop * mScaleFact,
-			mNearVal * 200,
-			mFarVal);
+		float ratio = mNearVal / distance(mLook, mEye);
+		mProjMat = frustum(xLeft * mScaleFact * ratio,
+						   xRight * mScaleFact * ratio,
+						   yBot * mScaleFact * ratio,
+						   yTop * mScaleFact * ratio,	
+						   mNearVal,
+						   mFarVal);
 	}
 }
 
@@ -141,24 +143,29 @@ Camera::changePrj()
 {
 	bOrto = !bOrto;
 
-	std::cout << bOrto << std::endl;
+	setPM();
 }
 
 void
 Camera::moveLR(GLfloat cs) 
 {
-
-
+	mEye += mRight * cs;
+	mLook += mRight * cs;
+	setVM();
 }
 
 void
 Camera::moveFB(GLfloat cs) 
 {
-
+	mEye += mFront * cs;
+	mLook += mFront * cs;
+	setVM();
 }
 
 void
 Camera::moveUD(GLfloat cs) 
 {
-
+	mEye += mUpward * cs;
+	mLook += mUpward * cs;
+	setVM();
 }
