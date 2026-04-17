@@ -143,3 +143,22 @@ Camera::changePrj()
 
 	std::cout << bOrto << std::endl;
 }
+
+void
+Camera::moveLR(GLfloat cs) 
+{
+
+
+}
+
+void
+Camera::moveFB(GLfloat cs) 
+{
+
+}
+
+void
+Camera::moveUD(GLfloat cs) 
+{
+
+}
