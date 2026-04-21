@@ -35,6 +35,8 @@ public:
 	void yawReal(GLfloat cs);	// yaw right / yaw left
 	void rollReal(GLfloat cs);	// roll right / roll left
 
+	void orbit(GLdouble incAng, GLdouble incY);
+
 	// projection matrix
 	glm::mat4 const& projMat() const { return mProjMat; };
 
@@ -66,6 +68,9 @@ protected:
 	bool bOrto = true;                      // orthogonal or perspective projection
 
 	Viewport* mViewPort; // the viewport
+
+	GLdouble mRadio; 
+	GLdouble mAng;
 
 	void setVM();
 	void setPM();
