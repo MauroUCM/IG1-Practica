@@ -133,9 +133,9 @@ Camera::upload() const
 void 
 Camera::setAxes() 
 {
-	mRight = glm::row(mViewMat, 0);
-	mUpward = glm::row(mViewMat, 1);
-	mFront = -glm::row(mViewMat, 2);
+	mRight = row(mViewMat, 0);
+	mUpward = row(mViewMat, 1);
+	mFront = -row(mViewMat, 2);
 }
 
 void
@@ -173,17 +173,20 @@ Camera::moveUD(GLfloat cs)
 void
 Camera::pitchReal(GLfloat cs)
 {
-
+	mLook += mUpward * cs;
+	setVM();
 }
 
 void
 Camera::yawReal(GLfloat cs)
 {
-
+	mLook += mRight * cs;
+	setVM();
 }
 
 void
 Camera::rollReal(GLfloat cs)
 {
-
+	mLook += mFront * cs;
+	setVM();
 }
