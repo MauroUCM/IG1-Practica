@@ -40,6 +40,8 @@ Camera::set2D()
 	mEye = {0, 0, 500};
 	mLook = {0, 0, 0};
 	mUp = {0, 1, 0};
+	mAng = 0;
+	mRadio = 500;
 	setVM();
 }
 
