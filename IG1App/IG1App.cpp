@@ -168,22 +168,22 @@ IG1App::key(unsigned int key)
 
 	switch (key) {
 		case 'w':
-			mCamera->moveFB(+1.0);	// move forward
+			mCamera->moveFB(+10.0);	// move forward
 			break;
 		case 's':
-			mCamera->moveFB(-1.0);	// move back
+			mCamera->moveFB(-10.0);	// move back
 			break;
 		case 'a':
-			mCamera->moveLR(+1.0);	// move left
+			mCamera->moveLR(+10.0);	// move left
 			break;
 		case 'd':
-			mCamera->moveLR(-1.0);	// move right
+			mCamera->moveLR(-10.0);	// move right
 			break;
 		case 'W':
-			mCamera->moveUD(-1.0);	// move up
+			mCamera->moveUD(-10.0);	// move up
 			break;
 		case 'S':
-			mCamera->moveUD(+1.0);	// move down
+			mCamera->moveUD(+10.0);	// move down
 			break;
 		case '+':
 			mCamera->setScale(+1.0); // zoom in  (increases the scale)
