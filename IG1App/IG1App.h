@@ -66,6 +66,7 @@ protected:
 	const double FRAME_DURATION = 0.01;
 	bool mUpdateEnabled = true;
 	double mNextUpdate;
+	bool m2Vistas = false;
 };
 
 inline Viewport const&

@@ -203,6 +203,10 @@ IG1App::key(unsigned int key)
 		case 'p':
 			mCamera->changePrj();
 			break;
+		case 'k':
+			m2Vistas != m2Vistas;
+			mCamera->setCenital();
+			break;
 		default:
 			if (key >= '0' && key <= '9') {
 				if (changeScene(char(key) - '0')) break;

@@ -191,7 +191,7 @@ Camera::yawReal(GLfloat cs)
 void
 Camera::rollReal(GLfloat cs)
 {
-	mLook += mFront * cs;
+	mUp = glm::mat3(rotate(mat4(1.0f), glm::radians(cs), mFront)) * mUp;
 	setVM();
 }
 
