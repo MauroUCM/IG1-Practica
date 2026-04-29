@@ -43,6 +43,7 @@ protected:
 	void resize(int newWidth, int newHeight);  // the viewport (without changing the scale)
 	void key(unsigned int codepoint);          // keypress event
 	void specialkey(int key, int scancode, int action, int mods); // special keypress event
+	void display2V();
 
 	// static callbacks
 	static void s_display(GLFWwindow*) { s_ig1app.display(); };

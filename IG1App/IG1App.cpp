@@ -205,7 +205,7 @@ IG1App::key(unsigned int key)
 			break;
 		case 'k':
 			m2Vistas != m2Vistas;
-			mCamera->setCenital();
+			display2V();
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
@@ -278,3 +278,50 @@ IG1App::changeScene(size_t sceneNr)
 
 	return true;
 }
+
+void 
+IG1App::display2V() { // se llama en display()
+	// para renderizar las vistas utilizamos una cámara
+	// auxiliar:
+	Camera auxCam = *mCamera; // copiando mCamera
+	// el puerto de vista queda compartido (se copia el
+	// puntero)
+	// lo copiamos en una var. aux.
+	Viewport auxVP = *mViewPort;
+	// el tamaño de los 4 puertos de vista es el mismo,
+	// lo configuramos
+	mViewPort->setSize(mWinW / 2, mWinH);
+	// igual que en resize, para que no cambie la escala,
+	// tenemos que cambiar el tamaño de la ventana de vista
+	// de la cámara
+	auxCam.setSize(mViewPort->width(), mViewPort->height());
+	// vista Usuario ->
+	// vista 2D ->
+	// vista 3D ->
+	// vista Cenital ->
+	*mViewPort = auxVP; // * restaurar el puerto de vista (NOTA)
+	// el tamaño de los 4 puertos de vista es el mismo
+	// (ya configurado ), pero tenemos que configurar
+	// la posición
+	mViewPort->setPos(0, 0);
+	// el tamaño de la ventana de vista es el mismo para
+	// las 4 vistas (ya configurado) y la posición y
+	// orientación de la cámara es
+	// la del usuario (ya configurado -> copiado de mCamera)
+	// renderizamos con la cámara y el puerto de vista
+	// configurados
+	mScenes[mCurrentScene]->render(auxCam);
+	// el tamaño de los 4 puertos de vista es el mismo
+	// (ya configurado ), pero tenemos que configurar
+	// la posición
+	mViewPort->setPos(mWinW / 2, 0);
+	// el tamaño de la ventana de vista es el mismo para
+	// las 4 vistas (ya configurado)
+	// pero tenemos que cambiar la posición y orientación
+	// de la cámara
+	auxCam.setCenital();
+	// renderizamos con la cámara y el puerto de vista
+	// configurados
+	mScenes[mCurrentScene]->render(auxCam);
+}
+
