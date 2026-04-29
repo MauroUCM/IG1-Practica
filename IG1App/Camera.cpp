@@ -51,6 +51,8 @@ Camera::set3D()
 	mEye = {500, 500, 500};
 	mLook = {0, 10, 0};
 	mUp = {0, 1, 0};
+	mAng = 0;
+	mRadio = 500;
 	setVM();
 }
 
@@ -199,5 +201,13 @@ Camera::orbit(GLdouble incAng, GLdouble incY) {
 	mEye.x = mLook.x + cos(radians(mAng)) * mRadio;
 	mEye.z = mLook.z - sin(radians(mAng)) * mRadio;
 	mEye.y += incY;
+	setVM();
+}
+
+void
+Camera::setCenital() {
+	mEye.x = mLook.x;
+	mEye.z = mLook.z + 1;
+	mEye.y += 300;
 	setVM();
 }

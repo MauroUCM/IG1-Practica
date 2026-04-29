@@ -35,7 +35,8 @@ public:
 	void yawReal(GLfloat cs);	// yaw right / yaw left
 	void rollReal(GLfloat cs);	// roll right / roll left
 
-	void orbit(GLdouble incAng, GLdouble incY);
+	void orbit(GLdouble incAng, GLdouble incY);	// moves the camera +incAng degrees and +incY height
+	void setCenital();
 
 	// projection matrix
 	glm::mat4 const& projMat() const { return mProjMat; };
