@@ -142,8 +142,9 @@ IG1App::display() const
 { // double buffering
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clears the back buffer
-
-	mScenes[mCurrentScene]->render(*mCamera); // uploads the viewport and camera to the GPU
+	
+	if (!m2Vistas) mScenes[mCurrentScene]->render(*mCamera); // uploads the viewport and camera to the GPU
+	else display2V();
 
 	glfwSwapBuffers(mWindow); // swaps the front and back buffer
 }
@@ -204,8 +205,8 @@ IG1App::key(unsigned int key)
 			mCamera->changePrj();
 			break;
 		case 'k':
-			m2Vistas != m2Vistas;
-			display2V();
+			m2Vistas = !m2Vistas;
+			need_redisplay = true;
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
@@ -280,7 +281,7 @@ IG1App::changeScene(size_t sceneNr)
 }
 
 void 
-IG1App::display2V() { // se llama en display()
+IG1App::display2V() const { // se llama en display()
 	// para renderizar las vistas utilizamos una cámara
 	// auxiliar:
 	Camera auxCam = *mCamera; // copiando mCamera
