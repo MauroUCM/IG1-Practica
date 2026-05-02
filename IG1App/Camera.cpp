@@ -206,8 +206,9 @@ Camera::orbit(GLdouble incAng, GLdouble incY) {
 
 void
 Camera::setCenital() {
-	mEye.x = mLook.x;
-	mEye.z = mLook.z + 1;
-	mEye.y += 300;
+	mLook = glm::vec3(0.0);
+	mEye.x = 0.0;
+	mEye.z = 0.1;	// si es 0.0 el renderizado se rompe
+	mEye.y += 500.0;
 	setVM();
 }
