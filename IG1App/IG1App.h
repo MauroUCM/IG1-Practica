@@ -4,6 +4,7 @@
 #include <GL/glew.h>     // OpenGL Extension Wrangler
 #include <GLFW/glfw3.h>  // OpenGL Library
 #include <glm/glm.hpp>   // OpenGL Mathematics
+#include <dvec.h>
 
 #include "Camera.h"
 #include "Scene.h"
@@ -45,11 +46,19 @@ protected:
 	void specialkey(int key, int scancode, int action, int mods); // special keypress event
 	void display2V() const;
 
+	// mouse methods
+	void mouse(int button, int action, int mods);
+	void motion(double x, double y);
+	void mouseWheel(double dx, double dy);
+
 	// static callbacks
 	static void s_display(GLFWwindow*) { s_ig1app.display(); };
 	static void s_resize(GLFWwindow*, int newWidth, int newHeight) { s_ig1app.resize(newWidth, newHeight); };
 	static void s_key(GLFWwindow* win, unsigned int codepoint) { s_ig1app.key(codepoint); };
 	static void s_specialkey(GLFWwindow* win, int key, int scancode, int action, int mods) { s_ig1app.specialkey(key, scancode, action, mods); };
+	static void s_mouse(GLFWwindow* win, int button, int action, int mods) { s_ig1app.mouse(button, action, mods); };
+	static void s_motion(GLFWwindow* win, double x, double y) { s_ig1app.motion(x, y); };
+	static void s_mouseWheel(GLFWwindow* win, double dx, double dy) { s_ig1app.mouseWheel(dx, dy); };
 
 	// Viewport position and size
 	Viewport* mViewPort = nullptr;
@@ -68,6 +77,9 @@ protected:
 	bool mUpdateEnabled = true;
 	double mNextUpdate;
 	bool m2Vistas = false;
+	glm::dvec2 mMouseCoord;
+	int mMouseButt = -1;
+	int mMouseStat = 0;
 };
 
 inline Viewport const&

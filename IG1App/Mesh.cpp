@@ -314,7 +314,6 @@ Mesh::generateBoxOutline(GLdouble length) {
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
 
 	// texture vertices
-//de 0 a4 x
 	mesh->vTexCoords.reserve(mesh->mNumVertices);
 	mesh->vTexCoords.emplace_back(0, 1);
 	mesh->vTexCoords.emplace_back(0, 0);

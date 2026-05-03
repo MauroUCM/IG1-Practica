@@ -112,6 +112,9 @@ IG1App::iniWinOpenGL()
 	glfwSetCharCallback(mWindow, s_key);
 	glfwSetKeyCallback(mWindow, s_specialkey);
 	glfwSetWindowRefreshCallback(mWindow, s_display);
+	glfwSetMouseButtonCallback(mWindow, s_mouse);
+	glfwSetCursorPosCallback(mWindow, s_motion);
+	glfwSetScrollCallback(mWindow, s_mouseWheel);
 
 	// Error message callback (all messages)
 	glEnable(GL_DEBUG_OUTPUT);
@@ -304,3 +307,36 @@ IG1App::display2V() const {
 	*mViewPort = auxVP;
 }
 
+void 
+IG1App::mouse(int button, int state, int mods)
+{
+	mMouseButt = button;
+	mMouseStat = state;
+	glfwGetCursorPos(mWindow, &mMouseCoord.x, &mMouseCoord.y);
+}
+
+void 
+IG1App::motion(double x, double y)
+{
+	if (mMouseStat == GLFW_PRESS) {
+		switch (mMouseButt)
+		{
+		case GLFW_MOUSE_BUTTON_1:	// left button
+			mCamera->orbit((mMouseCoord.x - x) * 0.5, y - mMouseCoord.y);
+			break;
+		case GLFW_MOUSE_BUTTON_2:	// right button
+			mCamera->moveLR(mMouseCoord.x - x);
+			mCamera->moveUD(y - mMouseCoord.y);
+			break;
+		}
+		mMouseCoord.x = x;
+		mMouseCoord.y = y;
+	}
+}
+
+void
+IG1App::mouseWheel(double dx, double dy)
+{
+	if (glfwGetKey(mWindow, GLFW_KEY_LEFT_CONTROL) || glfwGetKey(mWindow, GLFW_KEY_RIGHT_CONTROL)) mCamera->setScale(dy * 0.3);
+	else mCamera->moveFB(dy * 10.0);
+}
