@@ -37,8 +37,8 @@ public:
 	void setColors(std::vector<glm::vec4> colors) { vColors = colors; };
 	void setAllColors(glm::vec4 color);
 
-	void load();
-	void unload();
+	virtual void load();
+	virtual void unload();
 
 protected:
 	GLuint mPrimitive =

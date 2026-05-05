@@ -1,0 +1,23 @@
+#pragma once
+#include "Mesh.h"
+#include <numbers>
+
+class IndexMesh : public Mesh
+{
+public:
+	void load() override;
+	void unload() override;
+	static IndexMesh* generateByRevolution(
+		const std::vector<glm::vec2>& profile, GLuint nSamples,
+		GLfloat angleMax = 2 * std::numbers::pi);
+
+protected:
+	void draw() const override;
+	
+
+
+private:
+	std::vector<GLuint> vIndexes;
+	GLuint mIBO;
+};
+
