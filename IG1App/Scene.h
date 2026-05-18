@@ -68,4 +68,10 @@ class Scene3 : public Scene {
 
 };
 
+class Scene4 : public Scene {
+
+	void init() override;
+
+};
+
 #endif //_H_Scene_H_
