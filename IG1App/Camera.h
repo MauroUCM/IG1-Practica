@@ -63,6 +63,9 @@ protected:
 	glm::mat4 mProjMat;   // projection matrix
 	void uploadPM() const; // transfers projMat to the GPU
 
+	glm::mat4 mLightDir = glm::mat4({ 1.0, 1.5, 1.25, 0.0 });	// cosas de la luz
+	void uploadLight() const;
+
 	GLfloat xRight, xLeft, yTop, yBot;     // size of scene visible area
 	GLfloat mNearVal = 1, mFarVal = 10000; // view volume
 	GLfloat mScaleFact = 1;                // scale factor
@@ -76,6 +79,7 @@ protected:
 	void setVM();
 	void setPM();
 	void setAxes();	
+	void setLight();
 };
 
 #endif //_H_Camera_H_

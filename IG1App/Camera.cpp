@@ -19,6 +19,7 @@ Camera::Camera(Viewport* vp)
   , mViewPort(vp)
 {
 	setPM();
+	setLight();
 }
 
 void
@@ -126,12 +127,25 @@ Camera::uploadPM() const
 	Shader::setUniform4All("projection", mProjMat);
 }
 
+void 
+Camera::setLight() 
+{
+	mLightDir = mLightDir * this->mViewMat;
+}
+
+void
+Camera::uploadLight() const
+{
+	Shader::setUniform4All("lightDir", mLightDir * this->mViewMat);
+}
+
 void
 Camera::upload() const
 {
 	mViewPort->upload();
 	uploadVM();
 	uploadPM();
+	uploadLight();
 }
 
 void 
