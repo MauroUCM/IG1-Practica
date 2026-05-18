@@ -1,4 +1,5 @@
 #include "Mesh.h"
+#include <numbers>
 
 using namespace std;
 using namespace glm;
@@ -395,4 +396,37 @@ void Mesh::setAllColors(glm::vec4 color)
 	for (int i = 0; i < mNumVertices; i++) {
 		vColors.emplace_back(color);
 	}
+}
+
+Mesh* 
+Mesh::generateByRevolution(const std::vector<glm::vec2>& perfil, int nMuestras) {
+	Mesh* mesh = new Mesh;
+	mesh->mPrimitive = GL_TRIANGLES;
+	// Genera los vértices de las muestras
+	vector<vector<vec3>> vs(nMuestras + 1);
+	GLdouble theta1 = 2 * numbers::pi / nMuestras;
+
+	for (int i = 0; i <= nMuestras; ++i) { // muestra i-ésima
+		GLdouble c = cos(i * theta1), s = sin(i * theta1);
+		vs[i].reserve(perfil.size());
+		for (auto p : perfil) // rota el perfil
+			vs[i].emplace_back(p.x * c, p.y, -p.x * s);
+	}
+	for (int i = 0; i < nMuestras; ++i) {// caras i a i + 1
+		for (int j = 0; j < perfil.size() - 1; ++j) { // una cara
+			// Triángulo inferior (si no es degenerado)
+			if (perfil[j].x != 0.0) {
+				mesh->vVertices.push_back(vs[i][j]);
+				mesh->vVertices.push_back(vs[i][j + 1]);
+				mesh->vVertices.push_back(vs[i + 1][j]);
+			}
+			// Triángulo superior (si no es degenerado)
+			if (perfil[j + 1].x != 0.0) {
+				for (auto [s, t] : { pair{i, j + 1}, {i + 1, j + 1}, {i + 1, j} })
+					mesh->vVertices.push_back(vs[s][t]); // más corto
+			}
+		}
+	}
+	mesh->mNumVertices = mesh->vVertices.size();
+	return mesh;
 }

@@ -71,6 +71,11 @@ Scene0::init() {
 
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	// Toro
+	gObjects.push_back(new Torus(200, 100));
+
+	
 }
 
 void

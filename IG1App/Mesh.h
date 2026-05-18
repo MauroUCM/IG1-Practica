@@ -21,6 +21,8 @@ public:
 	static Mesh* generateBoxOutline(GLdouble length);	// generates a cube without the top and bottom face
 	static Mesh* generateStar3D(GLdouble re, GLuint np, GLdouble h);	// generates a star of np points, h height in z axis and re radius 
 	static Mesh* generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h);	// generates a star with texture coordinates
+	
+	static Mesh* generateByRevolution(const std::vector<glm::vec2>& perfil, int nMuestras);
 
 	Mesh();
 	virtual ~Mesh();

@@ -15,6 +15,8 @@
 #include "BoxOutline.h"
 #include "Star3D.h"
 #include "GlassParapet.h"
+#include "Torus.h"
+#include "IndexMesh.h"
 
 #include <vector>
 
