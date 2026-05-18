@@ -45,7 +45,6 @@ Mesh::load()
 
 		if (vColors.size() > 0) {             // upload colors
 			glGenBuffers(1, &mCBO);
-
 			glBindBuffer(GL_ARRAY_BUFFER, mCBO);
 			glBufferData(GL_ARRAY_BUFFER, vColors.size() * sizeof(vec4), vColors.data(), GL_STATIC_DRAW);
 			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(vec4), nullptr);
@@ -59,6 +58,13 @@ Mesh::load()
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(vec2), nullptr);
 		glEnableVertexAttribArray(2);
 
+	}
+	if (vNormals.size() > 0) {
+		glGenBuffers(1, &mNBO);
+		glBindBuffer(GL_ARRAY_BUFFER, mNBO);
+		glBufferData(GL_ARRAY_BUFFER, vNormals.size() * sizeof(vec3), vNormals.data(), GL_STATIC_DRAW);
+		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(vec3), nullptr);
+		glEnableVertexAttribArray(3);
 	}
 }
 
@@ -77,6 +83,7 @@ Mesh::unload()
 		}
 	}
 	if (mTCO != NONE) glDeleteBuffers(1, &mTCO);
+	if (mNBO != NONE) glDeleteBuffers(1, &mNBO);
 }
 
 void

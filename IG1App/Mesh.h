@@ -53,12 +53,12 @@ protected:
 	virtual void draw() const;
 
 	GLuint mVAO;  // vertex array object
-	GLuint mNBO;
 
 private:
 	GLuint mVBO;  // vertex buffer object
 	GLuint mCBO;  // color buffer object
 	GLuint mTCO; // texture buffer object
+	GLuint mNBO; // normal buffere object
 };
 
 #endif //_H_Scene_H_
