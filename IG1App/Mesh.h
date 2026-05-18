@@ -49,9 +49,11 @@ protected:
 	std::vector<glm::vec3> vVertices; // vertex array
 	std::vector<glm::vec4> vColors;   // color array
 	std::vector<glm::vec2> vTexCoords; // texture coordinates
+	std::vector<glm::vec3> vNormals;  // normals array
 	virtual void draw() const;
 
 	GLuint mVAO;  // vertex array object
+	GLuint mNBO;
 
 private:
 	GLuint mVBO;  // vertex buffer object
