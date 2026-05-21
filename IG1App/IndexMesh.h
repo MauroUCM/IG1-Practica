@@ -7,14 +7,14 @@ class IndexMesh : public Mesh
 public:
 	void load() override;
 	void unload() override;
-	static IndexMesh* generateByRevolution(
-		const std::vector<glm::vec2>& profile, GLuint nSamples,
-		GLfloat angleMax = 2 * std::numbers::pi);
+	void draw() const override;
 
-	void buildNormalVectors(IndexMesh* mesh);
+
+	static IndexMesh* generateByRevolution(const std::vector<glm::vec2>& profile, GLuint nSamples, GLfloat angleMax = 2 * std::numbers::pi);
+
+	void buildNormalVectors();
 
 protected:
-	void draw() const override;
 
 private:
 	std::vector<GLuint> vIndexes;

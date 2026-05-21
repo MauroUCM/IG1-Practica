@@ -19,7 +19,6 @@ Camera::Camera(Viewport* vp)
   , mViewPort(vp)
 {
 	setPM();
-	setLight();
 }
 
 void
@@ -127,16 +126,12 @@ Camera::uploadPM() const
 	Shader::setUniform4All("projection", mProjMat);
 }
 
-void 
-Camera::setLight() 
-{
-	mLightDir = mLightDir * this->mViewMat;
-}
-
 void
 Camera::uploadLight() const
 {
-	Shader::setUniform4All("lightDir", mLightDir * this->mViewMat);
+	glm::vec4 lightDir = normalize(mViewMat * vec4(-1.0f, -1.5f, -1.25f, 0.0f));
+	Shader::get("simple_light")->use();
+	Shader::get("simple_light")->Shader::setUniform("lightDir", lightDir);
 }
 
 void

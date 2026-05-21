@@ -9,8 +9,8 @@ void SingleColorEntity::render(const glm::mat4& modelViewMat) const
 {
 	if (mMesh != nullptr) {
 		glm::mat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		mShader->use(); 
 		mShader->setUniform("color", mColor);
-		mShader->use();
 		upload(aMat);
 		mMesh->render();
 	}

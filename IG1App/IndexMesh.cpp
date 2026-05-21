@@ -46,25 +46,28 @@ IndexMesh* IndexMesh::generateByRevolution(const std::vector<glm::vec2>& profile
 	}
 
 	mesh->mNumVertices = mesh->vVertices.size();
+
+	mesh->buildNormalVectors();
+
 	return mesh;
 }
 
-void IndexMesh::buildNormalVectors(IndexMesh* mesh)
+void IndexMesh::buildNormalVectors()
 {
-	std::vector<GLuint>& indexes = mesh->vIndexes;
-	glm::dvec3 normalVec = glm::dvec3(0.0, 0.0, 0.0);
-	int numVer = indexes.size();
-	
-	for (int i = 0; i < numVer; i++)
-	{
-		glm::dvec3 verAct = mesh->vVertices[indexes[i]];
-		glm::dvec3 verSig = mesh->vVertices[indexes[(i + 1) % numVer]];
-		normalVec.x += (verAct.y - verSig.y) * (verAct.z + verSig.z);
-		normalVec.y += (verAct.z - verSig.z) * (verAct.x + verSig.x);
-		normalVec.z += (verAct.x - verSig.x) * (verAct.y + verSig.y);
+	vNormals.clear();
+	vNormals.resize(vVertices.size(), glm::vec3(0.0f));
+
+	//Cálculo de normales
+	for (int i = 0; i < vIndexes.size(); i += 3) {
+		GLuint i0 = vIndexes[i];
+		GLuint i1 = vIndexes[i + 1];
+		GLuint i2 = vIndexes[i + 2];
+
+		glm::vec3 n = normalize(cross(vVertices[i1] - vVertices[i0], vVertices[i2] - vVertices[i0]));
+		vNormals[i0] += n;
+		vNormals[i1] += n;
+		vNormals[i2] += n;
 	}
 
-	// Normalizar la normal calculada
-	normalVec = glm::normalize(normalVec);
-	mesh->vNormals[indexes[0]] = normalVec;
+	for (auto& n : vNormals) n = normalize(n);
 }

@@ -5,7 +5,7 @@
 #include <vector>
 #include <numbers>
 
-Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) {
+Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) : ColorMaterialEntity() {
 
 	double t = -std::numbers::pi;
 	std::vector<glm::vec2> profile(nPoints + 1);

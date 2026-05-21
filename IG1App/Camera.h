@@ -79,7 +79,6 @@ protected:
 	void setVM();
 	void setPM();
 	void setAxes();	
-	void setLight();
 };
 
 #endif //_H_Camera_H_

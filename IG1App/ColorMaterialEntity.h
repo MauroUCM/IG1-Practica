@@ -6,5 +6,7 @@ class ColorMaterialEntity : public SingleColorEntity
 public:
 	ColorMaterialEntity();
 	~ColorMaterialEntity() {};
+
+
 };
 
