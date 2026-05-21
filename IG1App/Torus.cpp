@@ -12,10 +12,10 @@ Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) : ColorMat
 
 	for (int i = 0; i <= nPoints; i++) {
 		profile[i] = { r*cos(t) + R, r*sin(t) };
-		t = t - 2*(std::numbers::pi / nPoints);
+		t = t + 2*(std::numbers::pi / nPoints);
 	}
 
-	mMesh = Mesh::generateByRevolution(profile, nSamples);
+	mMesh = IndexMesh::generateByRevolution(profile, nSamples);
 	mMesh->setAllColors({ 0.0, 1.0, 0.0, 1.0 });
 }
 
