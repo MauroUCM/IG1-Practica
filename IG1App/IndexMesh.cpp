@@ -1,6 +1,7 @@
 	#include "IndexMesh.h"
 
 using namespace std;	
+using namespace glm;
 
 void IndexMesh::load() {
 	Mesh::load(); 
@@ -62,7 +63,7 @@ IndexMesh* IndexMesh::generateByRevolution(const std::vector<glm::vec2>& profile
 void IndexMesh::buildNormalVectors()
 {
 	vNormals.clear();
-	vNormals.resize(vVertices.size(), glm::vec3(0.0f));
+	vNormals.resize(vVertices.size(), vec3(0.0f));
 
 	//Cálculo de normales
 	for (int i = 0; i < vIndexes.size(); i += 3) {
@@ -70,7 +71,7 @@ void IndexMesh::buildNormalVectors()
 		GLuint i1 = vIndexes[i + 1];
 		GLuint i2 = vIndexes[i + 2];
 
-		glm::vec3 n = normalize(cross(vVertices[i1] - vVertices[i0], vVertices[i2] - vVertices[i0]));
+		vec3 n = normalize(cross(vVertices[i1] - vVertices[i0], vVertices[i2] - vVertices[i0]));
 		vNormals[i0] += n;
 		vNormals[i1] += n;
 		vNormals[i2] += n;
