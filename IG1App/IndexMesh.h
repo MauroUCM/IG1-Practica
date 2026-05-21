@@ -11,10 +11,10 @@ public:
 		const std::vector<glm::vec2>& profile, GLuint nSamples,
 		GLfloat angleMax = 2 * std::numbers::pi);
 
+	void buildNormalVectors(IndexMesh* mesh);
+
 protected:
 	void draw() const override;
-	
-
 
 private:
 	std::vector<GLuint> vIndexes;

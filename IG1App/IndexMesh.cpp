@@ -4,13 +4,6 @@ using namespace std;
 
 void IndexMesh::load() {
 	Mesh::load(); 
-	glBindVertexArray(mVAO);
-	glGenBuffers(1, &mIBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mIBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-		vIndexes.size() * sizeof(GLuint),
-		vIndexes.data(), GL_STATIC_DRAW);
-	glBindVertexArray(0);
 }
 
 void IndexMesh::unload() {
@@ -54,4 +47,24 @@ IndexMesh* IndexMesh::generateByRevolution(const std::vector<glm::vec2>& profile
 
 	mesh->mNumVertices = mesh->vVertices.size();
 	return mesh;
+}
+
+void IndexMesh::buildNormalVectors(IndexMesh* mesh)
+{
+	std::vector<GLuint>& indexes = mesh->vIndexes;
+	glm::dvec3 normalVec = glm::dvec3(0.0, 0.0, 0.0);
+	int numVer = indexes.size();
+	
+	for (int i = 0; i < numVer; i++)
+	{
+		glm::dvec3 verAct = mesh->vVertices[indexes[i]];
+		glm::dvec3 verSig = mesh->vVertices[indexes[(i + 1) % numVer]];
+		normalVec.x += (verAct.y - verSig.y) * (verAct.z + verSig.z);
+		normalVec.y += (verAct.z - verSig.z) * (verAct.x + verSig.x);
+		normalVec.z += (verAct.x - verSig.x) * (verAct.y + verSig.y);
+	}
+
+	// Normalizar la normal calculada
+	normalVec = glm::normalize(normalVec);
+	mesh->vNormals[indexes[0]] = normalVec;
 }

@@ -11,7 +11,7 @@ Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) {
 	std::vector<glm::vec2> profile(nPoints + 1);
 
 	for (int i = 0; i <= nPoints; i++) {
-		profile[i] = { r*cos(t) + R, r*sin(t) + R };
+		profile[i] = { r*cos(t) + R, r*sin(t) };
 		t = t + 2*(std::numbers::pi / nPoints);
 	}
 
