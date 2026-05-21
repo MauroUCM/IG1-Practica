@@ -4,6 +4,13 @@ using namespace std;
 
 void IndexMesh::load() {
 	Mesh::load(); 
+	glBindVertexArray(mVAO);
+	glGenBuffers(1, &mIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+		vIndexes.size() * sizeof(GLuint),
+		vIndexes.data(), GL_STATIC_DRAW);
+	glBindVertexArray(0);
 }
 
 void IndexMesh::unload() {

@@ -73,7 +73,7 @@ Scene0::init() {
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
 	// Toro
-	gObjects.push_back(new Torus(200, 100));
+	gObjects.push_back(new Torus(200, 75));
 
 	
 }

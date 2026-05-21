@@ -129,9 +129,8 @@ Camera::uploadPM() const
 void
 Camera::uploadLight() const
 {
-	glm::vec4 lightDir = normalize(mViewMat * vec4(-1.0f, -1.5f, -1.25f, 0.0f));
 	Shader::get("simple_light")->use();
-	Shader::get("simple_light")->Shader::setUniform("lightDir", lightDir);
+	Shader::get("simple_light")->Shader::setUniform("lightDir", glm::normalize(mViewMat * mLightDir));
 }
 
 void

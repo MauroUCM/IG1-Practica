@@ -63,7 +63,7 @@ protected:
 	glm::mat4 mProjMat;   // projection matrix
 	void uploadPM() const; // transfers projMat to the GPU
 
-	glm::mat4 mLightDir = glm::mat4({ 1.0, 1.5, 1.25, 0.0 });	// cosas de la luz
+	glm::vec4 mLightDir = glm::vec4( -1.0f, -1.5f, -1.25f, 0.0f);	// cosas de la luz
 	void uploadLight() const;
 
 	GLfloat xRight, xLeft, yTop, yBot;     // size of scene visible area
