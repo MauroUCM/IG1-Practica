@@ -1,10 +1,8 @@
 #include "Torus.h"
 #include "IndexMesh.h"
-#include <vector>
 #include <numbers>
 
 Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) : ColorMaterialEntity() {
-
 	double t = -std::numbers::pi;
 	std::vector<glm::vec2> profile(nPoints + 1);
 
@@ -14,7 +12,6 @@ Torus::Torus(GLdouble R, GLdouble r, GLuint nPoints, GLuint nSamples) : ColorMat
 	}
 
 	mMesh = IndexMesh::generateByRevolution(profile, nSamples);
-	mMesh->setAllColors({ 0.0, 1.0, 0.0, 1.0 });
 }
 
 Torus::~Torus() {

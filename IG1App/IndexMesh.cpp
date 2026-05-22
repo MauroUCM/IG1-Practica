@@ -175,3 +175,33 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 	mesh->buildNormalVectors();
 	return mesh;
 }
+
+IndexMesh* IndexMesh::generateSphere(GLdouble radius, GLuint nParallels, GLuint nMeridians) {
+	IndexMesh* mesh = new IndexMesh;
+	double t = 3 * (std::numbers::pi / 2);
+	std::vector<glm::vec2> profile;
+
+	for (int i = 0; i < nParallels; i++) {
+		profile.emplace_back(radius * cos(t), radius * sin(t) );
+		t = t - std::numbers::pi / nParallels;
+	}
+
+	mesh = IndexMesh::generateByRevolution(profile, nMeridians);
+	mesh->buildNormalVectors();
+	return mesh;
+}
+
+IndexMesh* IndexMesh::generateCone(GLdouble h, GLdouble r, GLdouble R, GLuint nRings, GLuint nSamples) {
+	IndexMesh* mesh = new IndexMesh;
+	std::vector<glm::vec2> profile;
+
+	profile.emplace_back(0, 0);
+	for (int i = 0; i <= nRings; i++) {
+		profile.emplace_back(r + (R - r) * i /nRings, h * i /nRings);
+	}
+	profile.emplace_back(0, h);
+
+	mesh = IndexMesh::generateByRevolution(profile, nSamples);
+	mesh->buildNormalVectors();
+	return mesh;
+}

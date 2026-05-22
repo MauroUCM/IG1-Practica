@@ -4,7 +4,7 @@
 class Disk : public ColorMaterialEntity
 {
 public:
-	Disk(GLdouble R, GLdouble r, GLuint nRings, GLuint nSamples);
+	Disk(GLdouble h, GLdouble r, GLuint nRings, GLuint nSamples);
 	~Disk() {};
 };
 

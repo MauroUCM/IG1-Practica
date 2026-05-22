@@ -18,6 +18,9 @@
 #include "Torus.h"
 #include "IndexMesh.h"
 #include "IndexedBox.h"
+#include "Sphere.h"
+#include "Cone.h"
+#include "Disk.h"
 
 #include <vector>
 
