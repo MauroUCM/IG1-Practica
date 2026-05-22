@@ -89,7 +89,7 @@ IndexMesh* IndexMesh::generateIndexedBox8(GLdouble l)
 	IndexMesh* mesh = new IndexMesh;
 	mesh->mPrimitive = GL_TRIANGLES;
 
-	// vertices
+	// vertexes
 	mesh->vVertices.reserve(8);
 	mesh->mNumVertices = 8;
 	mesh->vVertices.emplace_back(l, l, 0);
@@ -110,6 +110,66 @@ IndexMesh* IndexMesh::generateIndexedBox8(GLdouble l)
 		0, 7, 6, 1, 7, 0,
 		2, 6, 4, 0, 6, 2,
 		3, 7, 1, 5, 7, 3
+	};
+
+	mesh->buildNormalVectors();
+	return mesh;
+}
+
+IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
+{
+	IndexMesh* mesh = new IndexMesh;
+	mesh->mPrimitive = GL_TRIANGLES;
+
+	// Vertexes
+	mesh->vVertices.reserve(24);
+	mesh->mNumVertices = 24;
+
+	// Back face
+	mesh->vVertices.emplace_back(0.0, l, 0.0);
+	mesh->vVertices.emplace_back(l, l, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(l, 0.0, 0.0);
+
+	// Front face
+	mesh->vVertices.emplace_back(l, l, l);
+	mesh->vVertices.emplace_back(0.0, l, l);
+	mesh->vVertices.emplace_back(0.0, 0.0, l);
+	mesh->vVertices.emplace_back(l, 0.0, l);
+
+	// Left face
+	mesh->vVertices.emplace_back(0.0, l, l);
+	mesh->vVertices.emplace_back(0.0, l, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, l);
+
+	// Right face
+	mesh->vVertices.emplace_back(l, l, 0.0);
+	mesh->vVertices.emplace_back(l, l, l);
+	mesh->vVertices.emplace_back(l, 0.0, l);
+	mesh->vVertices.emplace_back(l, 0.0, 0.0);
+
+	// Top face
+	mesh->vVertices.emplace_back(0.0, l, 0.0);
+	mesh->vVertices.emplace_back(0.0, l, l);
+	mesh->vVertices.emplace_back(l, l, l);
+	mesh->vVertices.emplace_back(l, l, 0.0);
+
+	// Bottom face
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(l, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, l);
+	mesh->vVertices.emplace_back(l, 0.0, l);
+
+	// Indexes	
+	mesh->vIndexes.reserve(36);
+	mesh->vIndexes = {
+		0, 1, 2, 1, 3, 2,	//
+		4, 5, 6, 4, 6, 7,	//
+		8, 9, 10, 10, 11, 8,	//
+		12, 13, 14, 12, 14, 15,	//
+		16, 17, 18, 19, 16, 18,	//
+		20, 21, 22, 21, 23, 22	//
 	};
 
 	mesh->buildNormalVectors();

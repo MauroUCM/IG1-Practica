@@ -4,6 +4,5 @@
 
 IndexedBox::IndexedBox(GLdouble l) : ColorMaterialEntity()
 {
-	mMesh = IndexMesh::generateIndexedBox8(l);
-
+	mMesh = IndexMesh::generateIndexedBox(l);
 }
