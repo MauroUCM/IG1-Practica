@@ -1,5 +1,5 @@
 #include "IG1App.h"
-
+#include "ColorMaterialEntity.h"
 #include <iostream>
 
 using namespace std;
@@ -211,6 +211,9 @@ IG1App::key(unsigned int key)
 		case 'k':
 			m2Vistas = !m2Vistas;
 			need_redisplay = true;
+			break;
+		case 'n':
+			ColorMaterialEntity::toggleShowNormals();
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
