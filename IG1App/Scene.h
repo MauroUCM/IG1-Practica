@@ -21,6 +21,8 @@
 #include "Sphere.h"
 #include "Cone.h"
 #include "Disk.h"
+#include "SphereWithTexture.h"
+#include "Droid.h"
 
 #include <vector>
 

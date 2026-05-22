@@ -2,7 +2,7 @@
 
 bool ColorMaterialEntity::mShowNormals = false;
 
-ColorMaterialEntity::ColorMaterialEntity() : SingleColorEntity({ 0.0, 1.0, 0.0, 1.0 }) 
+ColorMaterialEntity::ColorMaterialEntity(glm::vec4 color) : SingleColorEntity(color)
 {
 	mShader = Shader::get("simple_light");
 }

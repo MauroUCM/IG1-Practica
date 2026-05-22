@@ -15,7 +15,6 @@ public:
 	static IndexMesh* generateSphere(GLdouble radius, GLuint nParallels, GLuint nMeridians);
 	static IndexMesh* generateCone(GLdouble h, GLdouble r, GLdouble R, GLuint nRings, GLuint nSamples);
 
-
 	void buildNormalVectors();
 
 protected:

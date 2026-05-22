@@ -21,8 +21,8 @@ void CompoundEntity::unload() {
 }
 
 void CompoundEntity::render(const glm::mat4& modelViewMat) const {
-	for (Abs_Entity* obj : gObjects) obj->render(modelViewMat);
-
+	glm::mat4 aMat = modelViewMat * mModelMat;
+	for (auto& entity : gObjects) entity->render(aMat);
 }
 
 void CompoundEntity::addEntity(Abs_Entity* ae) {

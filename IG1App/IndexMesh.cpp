@@ -185,6 +185,7 @@ IndexMesh* IndexMesh::generateSphere(GLdouble radius, GLuint nParallels, GLuint 
 		profile.emplace_back(radius * cos(t), radius * sin(t) );
 		t = t - std::numbers::pi / nParallels;
 	}
+	profile.emplace_back(radius * cos(t), radius * sin(t));
 
 	mesh = IndexMesh::generateByRevolution(profile, nMeridians);
 	mesh->buildNormalVectors();
