@@ -216,6 +216,12 @@ IG1App::key(unsigned int key)
 			m2Vistas = !m2Vistas;
 			need_redisplay = true;
 			break;
+		case 'f':
+			mScenes[8]->rotate();
+			break;
+		case 'g':
+			mScenes[8]->orbit();
+			break;
 		case 'n':
 			ColorMaterialEntity::toggleShowNormals();
 			break;
@@ -225,8 +231,6 @@ IG1App::key(unsigned int key)
 				else glClearColor(0.6, 0.7, 0.8, 1.0);
 				if (changeScene(char(key) - '0')) break;
 				cout << "[NOTE] There is no scene " << char(key) << ".\n";
-
-
 			}
 			need_redisplay = false;
 			break;

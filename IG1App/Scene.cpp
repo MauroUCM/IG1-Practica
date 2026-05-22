@@ -3,6 +3,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <iostream>
 
 using namespace glm;
 
@@ -179,6 +180,7 @@ Scene8::init() {
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
 
+	// radius variables
 	GLdouble droidRad = 20,
 		dathomirRad = 250;
 
@@ -192,4 +194,14 @@ Scene8::init() {
 	Sphere* dathomir = new Sphere(250, 30, 30);
 	dathomir->SetColor({ 0.67, 0.13, 0.28, 1.0 });
 	gObjects.push_back(dathomir);
+}
+
+void
+Scene8::rotate() {
+
+}
+
+void
+Scene8::orbit() {
+
 }

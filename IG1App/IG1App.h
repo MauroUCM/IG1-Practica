@@ -4,7 +4,6 @@
 #include <GL/glew.h>     // OpenGL Extension Wrangler
 #include <GLFW/glfw3.h>  // OpenGL Library
 #include <glm/glm.hpp>   // OpenGL Mathematics
-#include <dvec.h>
 
 #include "Camera.h"
 #include "Scene.h"
@@ -77,6 +76,8 @@ protected:
 	bool mUpdateEnabled = true;
 	double mNextUpdate;
 	bool m2Vistas = false;
+
+	// cosos del mouse
 	glm::dvec2 mMouseCoord;
 	int mMouseButt = -1;
 	int mMouseStat = 0;

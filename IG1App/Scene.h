@@ -44,6 +44,10 @@ public:
 	void load();
 	void unload();
 
+	// droid control
+	virtual void rotate() {};
+	virtual void orbit() {};
+
 protected:
 	void destroy();
 	void setGL();
@@ -95,6 +99,10 @@ class Scene7 : public Scene {
 class Scene8 : public Scene {
 
 	void init() override;
+
+	// droid control
+	void rotate() override;
+	void orbit() override;
 };
 
 #endif //_H_Scene_H_
