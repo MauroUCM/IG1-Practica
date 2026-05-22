@@ -78,6 +78,7 @@
     <ClInclude Include="GlassParapet.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IG1App.h" />
+    <ClInclude Include="IndexedBox.h" />
     <ClInclude Include="IndexMesh.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
@@ -106,6 +107,7 @@
     <ClCompile Include="GlassParapet.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="IG1App.cpp" />
+    <ClCompile Include="IndexedBox.cpp" />
     <ClCompile Include="IndexMesh.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />

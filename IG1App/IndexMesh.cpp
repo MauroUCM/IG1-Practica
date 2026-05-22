@@ -27,6 +27,26 @@ void IndexMesh::draw() const {
 	);
 }
 
+void IndexMesh::buildNormalVectors()
+{
+	vNormals.clear();
+	vNormals.resize(vVertices.size(), vec3(0.0f));
+
+	//Cálculo de normales
+	for (int i = 0; i < vIndexes.size(); i += 3) {
+		GLuint i0 = vIndexes[i];
+		GLuint i1 = vIndexes[i + 1];
+		GLuint i2 = vIndexes[i + 2];
+
+		vec3 n = normalize(cross(vVertices[i1] - vVertices[i0], vVertices[i2] - vVertices[i0]));
+		vNormals[i0] += n;
+		vNormals[i1] += n;
+		vNormals[i2] += n;
+	}
+
+	for (auto& n : vNormals) n = normalize(n);
+}
+
 IndexMesh* IndexMesh::generateByRevolution(const std::vector<glm::vec2>& profile, GLuint nSamples, GLfloat angleMax)
 {
 	IndexMesh* mesh = new IndexMesh;
@@ -64,22 +84,34 @@ IndexMesh* IndexMesh::generateByRevolution(const std::vector<glm::vec2>& profile
 	return mesh;
 }
 
-void IndexMesh::buildNormalVectors()
+IndexMesh* IndexMesh::generateIndexedBox8(GLdouble l) 
 {
-	vNormals.clear();
-	vNormals.resize(vVertices.size(), vec3(0.0f));
+	IndexMesh* mesh = new IndexMesh;
+	mesh->mPrimitive = GL_TRIANGLES;
 
-	//Cálculo de normales
-	for (int i = 0; i < vIndexes.size(); i += 3) {
-		GLuint i0 = vIndexes[i];
-		GLuint i1 = vIndexes[i + 1];
-		GLuint i2 = vIndexes[i + 2];
+	// vertices
+	mesh->vVertices.reserve(8);
+	mesh->mNumVertices = 8;
+	mesh->vVertices.emplace_back(l, l, 0);
+	mesh->vVertices.emplace_back(l, 0, 0);
+	mesh->vVertices.emplace_back(l, l, l);
+	mesh->vVertices.emplace_back(l, 0, l);
+	mesh->vVertices.emplace_back(0, l, l);
+	mesh->vVertices.emplace_back(0, 0, l);
+	mesh->vVertices.emplace_back(0, l, 0);
+	mesh->vVertices.emplace_back(0, 0, 0);
 
-		vec3 n = normalize(cross(vVertices[i1] - vVertices[i0], vVertices[i2] - vVertices[i0]));
-		vNormals[i0] += n;
-		vNormals[i1] += n;
-		vNormals[i2] += n;
-	}
+	// indexes
+	mesh->vIndexes.reserve(36);
+	mesh->vIndexes = {
+		2, 1, 0, 3, 1, 2,
+		4, 3, 2, 5, 3, 4,
+		6, 5, 4, 7, 5, 6,
+		0, 7, 6, 1, 7, 0,
+		2, 6, 4, 0, 6, 2,
+		3, 7, 1, 5, 7, 3
+	};
 
-	for (auto& n : vNormals) n = normalize(n);
+	mesh->buildNormalVectors();
+	return mesh;
 }

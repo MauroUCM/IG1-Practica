@@ -17,6 +17,7 @@
 #include "GlassParapet.h"
 #include "Torus.h"
 #include "IndexMesh.h"
+#include "IndexedBox.h"
 
 #include <vector>
 
@@ -49,31 +50,36 @@ protected:
 class Scene0 : public Scene {
 
 	void init() override;
-
 };
 
 class Scene1 : public Scene {
 
 	void init() override;
-
 };
 
 class Scene2 : public Scene {
 
 	void init() override;
-
 };
 
 class Scene3 : public Scene {
 
 	void init() override;
-
 };
 
 class Scene4 : public Scene {
 
 	void init() override;
+};
 
+class Scene5 : public Scene {
+
+	void init() override;
+};
+
+class Scene6 : public Scene {
+
+	void init() override;
 };
 
 #endif //_H_Scene_H_

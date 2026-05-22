@@ -71,11 +71,6 @@ Scene0::init() {
 
 	// Graphics objects (entities) of the scene
 	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
-
-	// Toro
-	gObjects.push_back(new Torus(200, 75));
-
-	
 }
 
 void
@@ -141,4 +136,26 @@ Scene4::init() {
 	glText->load("../assets/images/windowC.png", 100U);
 	glText->setWrap(GL_REPEAT);
 	gObjects.push_back(new GlassParapet(500, glText));
+}
+
+void
+Scene5::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	// Toro
+	gObjects.push_back(new Torus(200, 75));
+}
+
+void
+Scene6::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	// Cube 4kHD
+	gObjects.push_back(new IndexedBox(200));
 }

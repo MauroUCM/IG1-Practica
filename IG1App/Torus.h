@@ -1,5 +1,4 @@
 #pragma once
-#include "SingleColorEntity.h"
 #include "ColorMaterialEntity.h"
 
 class Torus : public ColorMaterialEntity
