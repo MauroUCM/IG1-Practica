@@ -159,3 +159,14 @@ Scene6::init() {
 	// Cube 4kHD
 	gObjects.push_back(new IndexedBox(200));
 }
+
+void
+Scene7::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	// Cube 4kHD
+	gObjects.push_back(new IndexedBox(200));
+}

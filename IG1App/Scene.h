@@ -82,4 +82,9 @@ class Scene6 : public Scene {
 	void init() override;
 };
 
+class Scene7 : public Scene {
+
+	void init() override;
+};
+
 #endif //_H_Scene_H_
