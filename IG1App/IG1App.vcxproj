@@ -72,6 +72,7 @@
     <ClInclude Include="BoxOutline.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ColorMaterialEntity.h" />
+    <ClInclude Include="CompoundEntity.h" />
     <ClInclude Include="Cone.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Disk.h" />
@@ -104,6 +105,7 @@
     <ClCompile Include="BoxOutline.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ColorMaterialEntity.cpp" />
+    <ClCompile Include="CompoundEntity.cpp" />
     <ClCompile Include="Cone.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Disk.cpp" />
