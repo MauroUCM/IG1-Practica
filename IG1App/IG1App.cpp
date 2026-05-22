@@ -70,6 +70,8 @@ IG1App::init()
 	mScenes.push_back(new Scene5);
 	mScenes.push_back(new Scene6);
 	mScenes.push_back(new Scene7);
+	mScenes.push_back(new Scene8);
+
 
 
 	mCamera->set2D();
@@ -219,8 +221,12 @@ IG1App::key(unsigned int key)
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
+				if (key == '8') glClearColor(0.0, 0.0, 0.0, 1.0);
+				else glClearColor(0.6, 0.7, 0.8, 1.0);
 				if (changeScene(char(key) - '0')) break;
 				cout << "[NOTE] There is no scene " << char(key) << ".\n";
+
+
 			}
 			need_redisplay = false;
 			break;

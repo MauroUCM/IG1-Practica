@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "ColorMaterialEntity.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -169,4 +170,26 @@ Scene7::init() {
 
 	// Droid
 	gObjects.push_back(new Droid(100));
+}
+
+void
+Scene8::init() {
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+
+	GLdouble droidRad = 20,
+		dathomirRad = 250;
+
+	// Droid
+	auto* droid = new Droid(droidRad);
+	glm::mat4 droidMat = droid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
+	droid->setModelMat(droidMat);
+	gObjects.push_back(droid);
+
+	// Dathomir
+	Sphere* dathomir = new Sphere(250, 30, 30);
+	dathomir->SetColor({ 0.67, 0.13, 0.28, 1.0 });
+	gObjects.push_back(dathomir);
 }
