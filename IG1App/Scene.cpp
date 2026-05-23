@@ -14,6 +14,25 @@ Scene::~Scene()
 }
 
 void
+Scene::init()
+{
+	setGL(); // OpenGL settings
+
+	// Graphics objects (entities) of the scene
+	gObjects.push_back(new RGBAxes(400.0));
+
+	// Lights of the scene
+	DirLight* dirLight = new DirLight(0);
+	dirLight->setDirection(glm::vec3(-1.0f, -1.0f, -1.0f));
+	dirLight->setAmb(glm::vec3(0.25f));
+	dirLight->setDiff(glm::vec3(0.5f));
+	dirLight->setSpec(glm::vec3(0.2f, 0.2f, 0.2f));
+	dirLight->setEnabled(true);
+
+	gLights.push_back(dirLight);
+}
+
+void
 Scene::destroy()
 { // release memory and resources
 
@@ -21,6 +40,7 @@ Scene::destroy()
 		delete el;
 
 	gObjects.clear();
+	gLights.clear();
 }
 
 void
@@ -55,6 +75,7 @@ void
 Scene::render(Camera const& cam) const
 {
 	cam.upload();
+	uploadLights(cam);
 
 	for (Abs_Entity* el : gObjects)
 		el->render(cam.viewMat());
@@ -68,19 +89,26 @@ Scene::update() {
 }
 
 void
-Scene0::init() {
-	setGL(); // OpenGL settings
+Scene::uploadLights(Camera const& cam) const {
+	Shader* shader = Shader::get("light");
+	shader->use();
+	for (Light* lig : gLights) 
+		lig->upload(*shader, cam.viewMat());
+}
 
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+void
+Scene::toggleLight() {
+	for (Light* lig : gLights) lig->setEnabled(!lig->enabled());
+}
+
+void
+Scene0::init() {
+	Scene::init();
 }
 
 void
 Scene1::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	gObjects.push_back(new RegularPolygon(6, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// hexagono magenta
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 1.0, 0.0, 1.0 }));	// circunferencia amarilla
@@ -88,10 +116,7 @@ Scene1::init() {
 
 void
 Scene2::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	gObjects.push_back(new RegularPolygon(60, 200.0, { 1.0, 0.0, 1.0, 1.0 }));	// circunferencia amarilla
 	gObjects.push_back(new RGBRectangle(282.0, 282.0));							// rectangulo rgb
@@ -100,20 +125,14 @@ Scene2::init() {
 
 void
 Scene3::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	gObjects.push_back(new Cube(100));
 }
 
 void
 Scene4::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	// 3D star
 	Texture* sText = new Texture();
@@ -142,10 +161,7 @@ Scene4::init() {
 
 void
 Scene5::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	// Toro
 	gObjects.push_back(new Torus(200, 75));
@@ -153,10 +169,7 @@ Scene5::init() {
 
 void
 Scene6::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	// Cube 4kHD
 	gObjects.push_back(new IndexedBox(200));
@@ -164,10 +177,7 @@ Scene6::init() {
 
 void
 Scene7::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	// Droid
 	gObjects.push_back(new Droid(100));
@@ -175,10 +185,7 @@ Scene7::init() {
 
 void
 Scene8::init() {
-	setGL(); // OpenGL settings
-
-	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RGBAxes(400.0));	// ejes RGB
+	Scene::init();
 
 	// radius variables
 	GLdouble droidRad = 20,
@@ -211,4 +218,23 @@ Scene8::orbit() {
 	_droid->rollBall(comm * 10);
 	glm::mat4 nodeMat = glm::rotate(_node->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
 	_node->setModelMat(nodeMat);
+}
+
+void
+Scene9::init() {
+	Scene::init();
+
+	// yellow planet
+	Sphere* yPlantet = new Sphere(75, 30, 30);
+	yPlantet->SetColor(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
+	yPlantet->setModelMat(glm::translate(glm::mat4(1.0f), glm::vec3(150, 0, 0)));
+	gObjects.push_back(yPlantet);
+
+	// gold planet
+	Sphere* gPlanet = new Sphere(75, 30, 30);
+	gPlanet->SetColor(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
+	gPlanet->setModelMat(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 150)));
+	gPlanet->getMaterial()->setGold();
+	gObjects.push_back(gPlanet);
+
 }

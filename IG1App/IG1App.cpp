@@ -71,6 +71,7 @@ IG1App::init()
 	mScenes.push_back(new Scene6);
 	mScenes.push_back(new Scene7);
 	mScenes.push_back(new Scene8);
+	mScenes.push_back(new Scene9);
 
 
 
@@ -224,6 +225,9 @@ IG1App::key(unsigned int key)
 			break;
 		case 'n':
 			ColorMaterialEntity::toggleShowNormals();
+			break;
+		case 'r':
+			for (Scene* scen : mScenes) scen->toggleLight();
 			break;
 		default:
 			if (key >= '0' && key <= '9') {

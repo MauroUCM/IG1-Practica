@@ -78,6 +78,7 @@
     <ClInclude Include="Disk.h" />
     <ClInclude Include="Droid.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityWithMaterial.h" />
     <ClInclude Include="EntityWithTexture.h" />
     <ClInclude Include="GlassParapet.h" />
     <ClInclude Include="Ground.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Disk.cpp" />
     <ClCompile Include="Droid.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityWithMaterial.cpp" />
     <ClCompile Include="EntityWithTexture.cpp" />
     <ClCompile Include="GlassParapet.cpp" />
     <ClCompile Include="Ground.cpp" />

@@ -1,15 +1,13 @@
 #pragma once
 #include "SingleColorEntity.h"
+#include "EntityWithMaterial.h"
 
-class ColorMaterialEntity : public SingleColorEntity
+class ColorMaterialEntity : public EntityWithMaterial
 {
 public:
 	ColorMaterialEntity(glm::vec4 color = { 0.0, 1.0, 0.0, 1.0 });
 	~ColorMaterialEntity() {};
 
-	void render(const glm::mat4& modelViewMat) const override;
-	static void toggleShowNormals() { mShowNormals = !mShowNormals; };
-private:
-	static bool mShowNormals;
+	void SetColor(glm::vec4 color) { setMaterial(Material(color)); };
 };
 

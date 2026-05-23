@@ -23,6 +23,7 @@
 #include "Disk.h"
 #include "SphereWithTexture.h"
 #include "Droid.h"
+#include "Light.h"
 
 #include <vector>
 
@@ -38,7 +39,9 @@ public:
 	virtual void init() = 0;
 
 	void render(Camera const& cam) const;
+	void uploadLights(Camera const& cam) const;
 	virtual void update();
+	void toggleLight();
 
 	// load or unload scene data into the GPU
 	void load();
@@ -54,6 +57,7 @@ protected:
 	void resetGL();
 
 	std::vector<Abs_Entity*> gObjects; // Entities (graphic objects) of the scene
+	std::vector<Light*> gLights;
 };
 
 class Scene0 : public Scene {
@@ -107,6 +111,11 @@ public:
 private:
 	CompoundEntity* _node = nullptr;
 	Droid* _droid;
+};
+
+class Scene9 : public Scene {
+
+	void init() override;
 };
 
 #endif //_H_Scene_H_

@@ -11,7 +11,7 @@ Droid::Droid(GLdouble radius) {
 
 	// head
 	_head = new Cone(radius/2, radius, radius/2, 10, 20);
-	_head->SetColor({ 1.0, 1.0, 0.0, 1.0 });
+	_head->SetColor({ 1, 1, 0, 1 });
 	glm::mat4 auxMat = glm::translate(glm::mat4(1.0), glm::vec3(0, radius, 0));
 	_head->setModelMat(auxMat);
 	addEntity(_head);
