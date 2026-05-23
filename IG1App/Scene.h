@@ -97,12 +97,16 @@ class Scene7 : public Scene {
 };
 
 class Scene8 : public Scene {
-
+public:
 	void init() override;
 
 	// droid control
 	void rotate() override;
 	void orbit() override;
+
+private:
+	CompoundEntity* _node = nullptr;
+	Droid* _droid;
 };
 
 #endif //_H_Scene_H_

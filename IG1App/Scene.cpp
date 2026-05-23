@@ -184,11 +184,15 @@ Scene8::init() {
 	GLdouble droidRad = 20,
 		dathomirRad = 250;
 
+	// invented node
+	_node = new CompoundEntity();
+	gObjects.push_back(_node);
+
 	// Droid
-	auto* droid = new Droid(droidRad);
-	glm::mat4 droidMat = droid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
-	droid->setModelMat(droidMat);
-	gObjects.push_back(droid);
+	_droid = new Droid(droidRad);
+	glm::mat4 droidMat = _droid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
+	_droid->setModelMat(droidMat);
+	_node->addEntity(_droid);
 
 	// Dathomir
 	Sphere* dathomir = new Sphere(250, 30, 30);
@@ -198,10 +202,13 @@ Scene8::init() {
 
 void
 Scene8::rotate() {
-
+	_node->setModelMat(glm::rotate(_node->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
 }
 
 void
 Scene8::orbit() {
-
+	GLfloat comm = 2.0f;
+	_droid->rollBall(comm * 10);
+	glm::mat4 nodeMat = glm::rotate(_node->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
+	_node->setModelMat(nodeMat);
 }
