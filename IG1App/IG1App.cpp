@@ -240,6 +240,8 @@ IG1App::key(unsigned int key)
 			break;
 	} // switch
 
+	for (Scene* scen : mScenes) scen->manageKey(key);
+
 	if (need_redisplay)
 		mNeedsRedisplay = true;
 }

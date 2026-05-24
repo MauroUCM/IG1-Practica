@@ -42,6 +42,7 @@ public:
 	void uploadLights(Camera const& cam) const;
 	virtual void update();
 	void toggleLight();
+	virtual void manageKey(unsigned int key) {};
 
 	// load or unload scene data into the GPU
 	void load();
@@ -111,6 +112,7 @@ public:
 private:
 	CompoundEntity* _node = nullptr;
 	Droid* _droid;
+	PosLight posLight;
 };
 
 class Scene9 : public Scene {
