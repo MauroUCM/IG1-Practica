@@ -100,17 +100,15 @@ class Scene7 : public Scene {
 class Scene8 : public Scene {
 public:
 	void init() override;
-
 	void handleKey(unsigned int key) override;
 
 private:
-	CompoundEntity* _node = nullptr;
-	Droid* _droid;
-	PosLight posLight;
+	CompoundEntity* gNode = nullptr;
+	Droid* gDroid;
+	PosLight* gPosLight;
 };
 
 class Scene9 : public Scene {
-
 	void init() override;
 };
 

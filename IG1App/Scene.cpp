@@ -192,14 +192,14 @@ Scene8::init() {
 		dathomirRad = 250;
 
 	// invented node
-	_node = new CompoundEntity();
-	gObjects.push_back(_node);
+	gNode = new CompoundEntity();
+	gObjects.push_back(gNode);
 
 	// Droid
-	_droid = new Droid(droidRad);
-	glm::mat4 droidMat = _droid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
-	_droid->setModelMat(droidMat);
-	_node->addEntity(_droid);
+	gDroid = new Droid(droidRad);
+	glm::mat4 droidMat = gDroid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
+	gDroid->setModelMat(droidMat);
+	gNode->addEntity(gDroid);
 
 	// Dathomir
 	Sphere* dathomir = new Sphere(250, 30, 30);
@@ -209,15 +209,16 @@ Scene8::init() {
 
 void
 Scene8::handleKey(unsigned int key) {
-	if (key == 'f') { // rotate
-		_node->setModelMat(glm::rotate(_node->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
-	}
-	else if (key == 'g') {	// orbit
+	if (key == 'f')	// rotate droid
+		gNode->setModelMat(glm::rotate(gNode->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
+	else if (key == 'g') {	// orbit droid
 		GLfloat comm = 2.0f;
-		_droid->rollBall(comm * 10);
-		glm::mat4 nodeMat = glm::rotate(_node->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
-		_node->setModelMat(nodeMat);
+		gDroid->rollBall(comm * 10);
+		glm::mat4 nodeMat = glm::rotate(gNode->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
+		gNode->setModelMat(nodeMat);
 	}
+	else if (key == 'r') //toggle light
+		gPosLight->setEnabled(!gPosLight->enabled());
 }
 
 void
