@@ -42,15 +42,11 @@ public:
 	void uploadLights(Camera const& cam) const;
 	virtual void update();
 	void toggleLight();
-	virtual void manageKey(unsigned int key) {};
+	virtual void handleKey(unsigned int key) {};
 
 	// load or unload scene data into the GPU
 	void load();
 	void unload();
-
-	// droid control
-	virtual void rotate() {};
-	virtual void orbit() {};
 
 protected:
 	void destroy();
@@ -105,9 +101,7 @@ class Scene8 : public Scene {
 public:
 	void init() override;
 
-	// droid control
-	void rotate() override;
-	void orbit() override;
+	void handleKey(unsigned int key) override;
 
 private:
 	CompoundEntity* _node = nullptr;

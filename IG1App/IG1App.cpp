@@ -217,12 +217,6 @@ IG1App::key(unsigned int key)
 			m2Vistas = !m2Vistas;
 			need_redisplay = true;
 			break;
-		case 'f':
-			mScenes[8]->rotate();
-			break;
-		case 'g':
-			mScenes[8]->orbit();
-			break;
 		case 'n':
 			ColorMaterialEntity::toggleShowNormals();
 			break;
@@ -240,7 +234,7 @@ IG1App::key(unsigned int key)
 			break;
 	} // switch
 
-	for (Scene* scen : mScenes) scen->manageKey(key);
+	for (Scene* scen : mScenes) scen->handleKey(key);
 
 	if (need_redisplay)
 		mNeedsRedisplay = true;
