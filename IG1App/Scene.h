@@ -106,6 +106,7 @@ private:
 	CompoundEntity* gNode = nullptr;
 	Droid* gDroid;
 	PosLight* gPosLight;
+	SpotLight* gSpotLight;
 };
 
 class Scene9 : public Scene {

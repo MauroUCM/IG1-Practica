@@ -205,6 +205,21 @@ Scene8::init() {
 	Sphere* dathomir = new Sphere(250, 30, 30);
 	dathomir->SetColor({ 0.67, 0.13, 0.28, 1.0 });
 	gObjects.push_back(dathomir);
+
+	// posLight 
+	gPosLight = new PosLight(0);
+	gPosLight->setPosition(glm::uvec3(dathomirRad + 60, dathomirRad + 60, 0.0));
+	gPosLight->setSpec(glm::vec3(0.2f, 0.2f, 0.2f));
+	gPosLight->setAmb(glm::vec3(0.25f));
+	gLights.push_back(gPosLight);
+
+	// spotLight
+	gSpotLight = new SpotLight(glm::uvec3(0, dathomirRad + 60, dathomirRad + 60), 0);
+	gSpotLight->setDirection(glm::vec3(-1.0f, -1.0f, -1.0f));
+	gSpotLight->setAmb(glm::vec3(0.25f));
+	gSpotLight->setDiff(glm::vec3(0.5f));
+	gSpotLight->setSpec(glm::vec3(0.2f, 0.2f, 0.2f));
+	gLights.push_back(gSpotLight);
 }
 
 void
@@ -217,8 +232,15 @@ Scene8::handleKey(unsigned int key) {
 		glm::mat4 nodeMat = glm::rotate(gNode->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
 		gNode->setModelMat(nodeMat);
 	}
-	else if (key == 'r') //toggle light
+	else if (key == 't') // toggle posLight
 		gPosLight->setEnabled(!gPosLight->enabled());
+	else if(key == 'y')	// toggle spotLight
+		gSpotLight->setEnabled(!gSpotLight->enabled());
+	else if (key == 'h')	// toggle droid light
+	{
+		// apagamos la luz
+	}
+	
 }
 
 void
