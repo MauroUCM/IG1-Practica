@@ -3,6 +3,7 @@
 #include "SphereWithTexture.h"
 #include "Disk.h"
 #include "Cone.h"
+#include "Light.h"
 
 class Droid : public CompoundEntity
 {
@@ -11,10 +12,12 @@ public:
 	~Droid() {};
 
 	void rollBall(GLfloat);
+	void toggleLight() { _spotLight->setEnabled(!_spotLight->enabled()); };
 
 private:
 	SphereWithTexture* _ball;
 	Cone* _head;
 	Disk* _eye1, *_eye2;
+	SpotLight* _spotLight;
 };
 

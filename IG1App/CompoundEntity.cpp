@@ -22,9 +22,19 @@ void CompoundEntity::unload() {
 
 void CompoundEntity::render(const glm::mat4& modelViewMat) const {
 	glm::mat4 aMat = modelViewMat * mModelMat;
+	Shader* shader = Shader::get("light");
+	shader->use();
+
+	for (Light* lig : gLights)
+		lig->upload(*shader, aMat);
+
 	for (auto& entity : gObjects) entity->render(aMat);
 }
 
 void CompoundEntity::addEntity(Abs_Entity* ae) {
 	gObjects.push_back(ae);
+}
+
+void CompoundEntity::addLight(Light* ae) {
+	gLights.push_back(ae);
 }

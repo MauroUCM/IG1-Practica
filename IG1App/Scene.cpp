@@ -224,6 +224,7 @@ Scene8::init() {
 
 void
 Scene8::handleKey(unsigned int key) {
+	bool redisplay = false;
 	if (key == 'f')	// rotate droid
 		gNode->setModelMat(glm::rotate(gNode->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
 	else if (key == 'g') {	// orbit droid
@@ -234,13 +235,10 @@ Scene8::handleKey(unsigned int key) {
 	}
 	else if (key == 't') // toggle posLight
 		gPosLight->setEnabled(!gPosLight->enabled());
-	else if(key == 'y')	// toggle spotLight
+	else if (key == 'y')	// toggle spotLight
 		gSpotLight->setEnabled(!gSpotLight->enabled());
 	else if (key == 'h')	// toggle droid light
-	{
-		// apagamos la luz
-	}
-	
+		gDroid->toggleLight();
 }
 
 void

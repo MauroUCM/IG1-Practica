@@ -28,6 +28,11 @@ Droid::Droid(GLdouble radius) {
 		* glm::rotate(glm::mat4(1.0), glm::radians(90.0f), glm::vec3(1, 0, 0));;
 	_eye2->setModelMat(auxMat);
 	addEntity(_eye2);
+
+	// light
+	_spotLight = new SpotLight(glm::vec3(0.0, 0.0, 0.0),1);
+	_spotLight->setDirection(glm::vec3(0.0, -1.0, 0.0));
+	addLight(_spotLight);
 }
 
 void Droid::rollBall(GLfloat factor) {

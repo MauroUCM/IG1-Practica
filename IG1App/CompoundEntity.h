@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Light.h"
 #include <vector>
 
 class CompoundEntity : public Abs_Entity
@@ -15,10 +16,11 @@ public:
 	void unload() override;
 
 	void addEntity(Abs_Entity* ae);
+	void addLight(Light* ae);
 
 
 protected:
 	std::vector<Abs_Entity*> gObjects;
-
+	std::vector<Light*> gLights;
 };
 
