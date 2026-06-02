@@ -9,5 +9,6 @@ public:
 	~ColorMaterialEntity() {};
 
 	void SetColor(glm::vec4 color) { setMaterial(Material(color)); };
+	//void render(const glm::mat4& modelViewMat) const override;
 };
 
