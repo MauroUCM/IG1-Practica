@@ -6,7 +6,7 @@ EntityWithTexture::EntityWithTexture(Texture* text, bool modul) : mTexture(text)
 }	
 
 EntityWithTexture::~EntityWithTexture() {
-
+	delete mTexture;
 }
 
 void
