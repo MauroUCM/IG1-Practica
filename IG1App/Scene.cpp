@@ -62,6 +62,20 @@ Scene::unload()
 		obj->unload(*shad);
 }
 
+bool
+Scene::handleKey(unsigned int key) {
+	bool redisplay = false;
+	switch (key)
+	{
+	case 'r':
+		toggleLight();
+		break;
+	default:
+		break;
+	}
+	return redisplay;
+}
+
 void
 Scene::setGL()
 {
@@ -185,7 +199,9 @@ Scene7::init() {
 	Scene::init();
 
 	// Droid
-	gObjects.push_back(new Droid(100));
+	Droid* auxDroid = new Droid(100);
+	gObjects.push_back(auxDroid);
+	gLights.push_back(auxDroid->getLight());
 }
 
 void
@@ -204,6 +220,7 @@ Scene8::init() {
 	gDroid = new Droid(droidRad);
 	glm::mat4 droidMat = gDroid->modelMat() * glm::translate(glm::mat4(1), glm::vec3(0, dathomirRad + droidRad * 0.75, 0));
 	gDroid->setModelMat(droidMat);
+	gLights.push_back(gDroid->getLight());
 	gNode->addEntity(gDroid);
 
 	// Dathomir
@@ -230,28 +247,35 @@ Scene8::init() {
 bool
 Scene8::handleKey(unsigned int key) {
 	bool redisplay = false;
-	if (key == 'f') {	// rotate droid
+	GLfloat comm = 2.0f;
+
+	switch (key)
+	{
+	case 'f':
 		gNode->setModelMat(glm::rotate(gNode->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
 		redisplay = true;
-	}
-	else if (key == 'g') {	// orbit droid
-		GLfloat comm = 2.0f;
+		break;
+	case 'g':
 		gDroid->rollBall(comm * 10);
 		glm::mat4 nodeMat = glm::rotate(gNode->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
 		gNode->setModelMat(nodeMat);
-		redisplay = true;
-	}
-	else if (key == 't') { // toggle posLight
+		break;
+	case 't':
 		gPosLight->setEnabled(!gPosLight->enabled());
 		redisplay = true;
-	}
-	else if (key == 'y') {	// toggle spotLight
+		break;
+	case 'y':
 		gSpotLight->setEnabled(!gSpotLight->enabled());
 		redisplay = true;
-	}
-	else if (key == 'h') {	// toggle droid light
+		break;
+	case 'h':
 		gDroid->toggleLight();
 		redisplay = true;
+		break;
+	case 'r':
+		toggleLight();
+		redisplay = true;
+		break;
 	}
 	return redisplay;
 }

@@ -221,9 +221,9 @@ IG1App::key(unsigned int key)
 		case 'n':
 			ColorMaterialEntity::toggleShowNormals();
 			break;
-		case 'r':
-			mScenes[mCurrentScene]->toggleLight();
-			break;
+		//case 'r':
+		//	mScenes[mCurrentScene]->toggleLight();
+		//	break;
 		default:
 			if (key >= '0' && key <= '9') {
 				if (key == '8') glClearColor(0.0, 0.0, 0.0, 1.0);

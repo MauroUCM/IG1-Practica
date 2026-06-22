@@ -13,6 +13,7 @@ public:
 
 	void rollBall(GLfloat);
 	void toggleLight() { _spotLight->setEnabled(!_spotLight->enabled()); };
+	SpotLight* getLight() { return _spotLight; }
 
 private:
 	SphereWithTexture* _ball;
