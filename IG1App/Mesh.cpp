@@ -321,6 +321,13 @@ Mesh::generateBoxOutline(GLdouble length) {
 	mesh->vVertices.emplace_back(0.0, length, length);
 	mesh->vVertices.emplace_back(0.0, 0.0, length);
 
+	return mesh;
+}
+
+Mesh*
+Mesh::generateBoxOutlineTexCor(GLdouble length) {
+	Mesh* mesh = generateBoxOutline(length);
+
 	// texture vertices
 	mesh->vTexCoords.reserve(mesh->mNumVertices);
 	mesh->vTexCoords.emplace_back(0, 1);

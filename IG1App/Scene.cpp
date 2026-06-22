@@ -253,6 +253,7 @@ Scene8::handleKey(unsigned int key) {
 		gDroid->toggleLight();
 		redisplay = true;
 	}
+	return redisplay;
 }
 
 void

@@ -3,7 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 BoxOutline::BoxOutline(GLdouble length, Texture* mTexture, Texture* inTexture) : EntityWithTexture(mTexture), inTexture(inTexture) {
-	mMesh = Mesh::generateBoxOutline(100.0);
+	mMesh = Mesh::generateBoxOutlineTexCor(100.0);
 
 	mModelMat = glm::translate(mModelMat, glm::vec3(-length / 2, 0.0, -length / 2));
 }

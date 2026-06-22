@@ -3,7 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 GlassParapet::GlassParapet(GLdouble length, Texture* mTexture) : EntityWithTexture(mTexture) {
-	mMesh = Mesh::generateBoxOutline(length);
+	mMesh = Mesh::generateBoxOutlineTexCor(length);
 	mModelMat = glm::scale(mModelMat, glm::vec3(1.0f, 0.25f, 1.0f));
 
 	mModelMat = glm::translate(mModelMat, glm::vec3(-length/2, -length / 2, -length/2));

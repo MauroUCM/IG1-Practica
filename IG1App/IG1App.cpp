@@ -76,8 +76,6 @@ IG1App::init()
 	mScenes.push_back(new Scene8);
 	mScenes.push_back(new Scene9);
 
-
-
 	mCamera->set2D();
 	for (Scene* scen : mScenes) {
 		scen->init();
@@ -225,7 +223,6 @@ IG1App::key(unsigned int key)
 			break;
 		case 'r':
 			mScenes[mCurrentScene]->toggleLight();
-			//for (Scene* scen : mScenes) scen->toggleLight();
 			break;
 		default:
 			if (key >= '0' && key <= '9') {

@@ -42,7 +42,7 @@ public:
 	void uploadLights(Camera const& cam) const;
 	virtual void update();
 	void toggleLight();
-	virtual bool handleKey(unsigned int key) {};
+	virtual bool handleKey(unsigned int key) { return false; };
 
 	// load or unload scene data into the GPU
 	void load();
