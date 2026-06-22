@@ -55,6 +55,11 @@ Scene::unload()
 {
 	for (Abs_Entity* obj : gObjects)
 		obj->unload();
+
+	Shader* shad = Shader::get("light");
+	shad->use();
+	for (Light* obj : gLights)
+		obj->unload(*shad);
 }
 
 void
@@ -253,7 +258,6 @@ Scene9::init() {
 
 	// gold planet
 	Sphere* gPlanet = new Sphere(75, 30, 30);
-	gPlanet->SetColor(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
 	gPlanet->setModelMat(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 150)));
 	gPlanet->getMaterial()->setGold();
 	gObjects.push_back(gPlanet);

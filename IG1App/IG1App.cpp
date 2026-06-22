@@ -2,6 +2,9 @@
 #include "ColorMaterialEntity.h"
 #include <iostream>
 
+const GLdouble VERTICAL_DRAG_OFFSET = 1.5;
+const GLdouble HORIZONTAL_DRAG_OFFSET = 0.3;
+
 using namespace std;
 
 // static single instance (singleton pattern)
@@ -221,7 +224,8 @@ IG1App::key(unsigned int key)
 			ColorMaterialEntity::toggleShowNormals();
 			break;
 		case 'r':
-			for (Scene* scen : mScenes) scen->toggleLight();
+			mScenes[mCurrentScene]->toggleLight();
+			//for (Scene* scen : mScenes) scen->toggleLight();
 			break;
 		default:
 			if (key >= '0' && key <= '9') {
@@ -234,7 +238,7 @@ IG1App::key(unsigned int key)
 			break;
 	} // switch
 
-	for (Scene* scen : mScenes) scen->handleKey(key);
+	mScenes[mCurrentScene]->handleKey(key);
 
 	if (need_redisplay)
 		mNeedsRedisplay = true;
@@ -338,7 +342,7 @@ IG1App::motion(double x, double y)
 		switch (mMouseButt)
 		{
 		case GLFW_MOUSE_BUTTON_1:	// left button
-			mCamera->orbit((mMouseCoord.x - x) * 0.5, y - mMouseCoord.y);
+			mCamera->orbit((mMouseCoord.x - x) * HORIZONTAL_DRAG_OFFSET, (y - mMouseCoord.y) * VERTICAL_DRAG_OFFSET);
 			break;
 		case GLFW_MOUSE_BUTTON_2:	// right button
 			mCamera->moveLR(mMouseCoord.x - x);
