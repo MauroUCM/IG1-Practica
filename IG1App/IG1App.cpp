@@ -238,7 +238,7 @@ IG1App::key(unsigned int key)
 			break;
 	} // switch
 
-	mScenes[mCurrentScene]->handleKey(key);
+	if (mScenes[mCurrentScene]->handleKey(key)) need_redisplay = true;
 
 	if (need_redisplay)
 		mNeedsRedisplay = true;

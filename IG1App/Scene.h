@@ -42,7 +42,7 @@ public:
 	void uploadLights(Camera const& cam) const;
 	virtual void update();
 	void toggleLight();
-	virtual void handleKey(unsigned int key) {};
+	virtual bool handleKey(unsigned int key) {};
 
 	// load or unload scene data into the GPU
 	void load();
@@ -100,7 +100,7 @@ class Scene7 : public Scene {
 class Scene8 : public Scene {
 public:
 	void init() override;
-	void handleKey(unsigned int key) override;
+	bool handleKey(unsigned int key) override;
 
 private:
 	CompoundEntity* gNode = nullptr;

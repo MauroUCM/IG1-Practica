@@ -227,23 +227,32 @@ Scene8::init() {
 	gLights.push_back(gSpotLight);
 }
 
-void
+bool
 Scene8::handleKey(unsigned int key) {
 	bool redisplay = false;
-	if (key == 'f')	// rotate droid
+	if (key == 'f') {	// rotate droid
 		gNode->setModelMat(glm::rotate(gNode->modelMat(), glm::radians(5.0f), { 0.0,1.0,0.0 }));
+		redisplay = true;
+	}
 	else if (key == 'g') {	// orbit droid
 		GLfloat comm = 2.0f;
 		gDroid->rollBall(comm * 10);
 		glm::mat4 nodeMat = glm::rotate(gNode->modelMat(), glm::radians(comm), glm::vec3(1, 0, 0));
 		gNode->setModelMat(nodeMat);
+		redisplay = true;
 	}
-	else if (key == 't') // toggle posLight
+	else if (key == 't') { // toggle posLight
 		gPosLight->setEnabled(!gPosLight->enabled());
-	else if (key == 'y')	// toggle spotLight
+		redisplay = true;
+	}
+	else if (key == 'y') {	// toggle spotLight
 		gSpotLight->setEnabled(!gSpotLight->enabled());
-	else if (key == 'h')	// toggle droid light
+		redisplay = true;
+	}
+	else if (key == 'h') {	// toggle droid light
 		gDroid->toggleLight();
+		redisplay = true;
+	}
 }
 
 void
