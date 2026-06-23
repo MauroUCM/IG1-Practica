@@ -41,12 +41,10 @@ IG1App::run() // enters the main event processing loop
 			mNeedsRedisplay = false;
 		}
 
-		if (mUpdateEnabled) {
-			if (glfwGetTime() > mNextUpdate) {
-				mNextUpdate = glfwGetTime() + FRAME_DURATION;
-				mScenes[mCurrentScene]->update();
-				mNeedsRedisplay = true;
-			}
+		if (glfwGetTime() > mNextUpdate) {
+			if (mUpdateEnabled) mScenes[mCurrentScene]->update();
+			mNextUpdate = glfwGetTime() + FRAME_DURATION;
+			mNeedsRedisplay = true;
 		}
 
 		glfwWaitEventsTimeout(mNextUpdate - glfwGetTime());
